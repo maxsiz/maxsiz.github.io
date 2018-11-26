@@ -1,16 +1,15 @@
 ---
 layout: page
-title: About me
-subtitle: Why you'd want to go on a date with me
+title: About Iber
+subtitle: Why you'd want to make deal with us
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+My name is Maxim Sizykh, software engineer with more then 15 years experience in FinTech.
+CEO founder IBER, LLC.  IBER LLC  is one of companies from [IberGroup](wwww.iber.group)
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+### Our history
 
-What else do you need?
+Since the beginning of the 21st century, I have touched the banking software development from different angles. From the support specialist - to the developer, from the tester - to the business analyst. In 2017 I founded IBER LLC. Today we specializing in decentralized payment systems designing and Ethereum smart contracts developing.
 
-### my history
 
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](http://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+
