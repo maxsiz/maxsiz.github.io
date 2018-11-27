@@ -99,4 +99,4 @@ yelp:
 telegram:
   name: "Telegram"
   baseURL: "https://t.me/"
-  icon: "fa-telegram"
+  icon: "fas-telegram"
