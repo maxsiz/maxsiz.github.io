@@ -37,7 +37,6 @@ _Project state: pause._
 [CCINToken](https://etherscan.io/token/0x0e5d8cf7fedc38c4716eb7e2a55a1f040313deb2)
 [Project repo](https://github.com/cryptocoininsurance/smartcontracts)
 _Project state: ICO  in progress, will finish at December, 2018._  
-
 ---
 
 ### Arround
