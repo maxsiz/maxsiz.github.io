@@ -4,4 +4,4 @@ title: partners
 subtitle
 ---
 
-[![IZZZIO](/img/izzz_note_200.png)](http://izzz.io/)
+[![IZZZIO](/img/izzz_note_200.png)](http://izzz.io/){:target="_blank"}
