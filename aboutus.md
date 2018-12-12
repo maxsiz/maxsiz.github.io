@@ -11,5 +11,7 @@ CEO founder IBER, LLC.  IBER LLC  is one of companies from [IberGroup](wwww.iber
 
 Since the beginning of the 21st century, I have touched the banking software development from different angles. From the support specialist - to the developer, from the tester - to the business analyst. In 2017 I founded IBER LLC. Today we specializing in decentralized payment systems designing and Ethereum smart contracts developing.
 
+### Team
+
 
 
