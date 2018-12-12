@@ -5,7 +5,7 @@ title: Other projects
 
 ### Sharing post service
 [Old version](http://podoroge.net/)
-[Rebrend version](http://handypost.online/)
+[Rebrend version](http://handypost.online/)  
 _Project state: Start in 2016, in progress._
 
 * * * 
@@ -28,7 +28,8 @@ _August, 2018_
 
 * * * 
 ### SynPat service API
-SynPat is cross chain ITSynergis project in barnach intellectual property protection.  
+SynPat is cross chain ITSynergis project in branch intellectual property protection.
+It help users  publish any ideas in [Steemit](https://steemit.com/@menaskop) and link it with Ethereum blockchain.  
 _November-December, 2018_ 
 
 * * * 
