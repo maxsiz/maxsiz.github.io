@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Ethereum smart contracts
+subtitle: Ethereum smart contracts
 ---
 
-### 
+ 
 | Description, links | Status | -|
 | :------ |:--- | :--- |
 | [ExoLover](https://exolover.io/)  
