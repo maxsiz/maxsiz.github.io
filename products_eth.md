@@ -9,8 +9,7 @@ title: Ethereum smart contracts
 [ERC20 based contract](https://etherscan.io/token/0xe58e751aba3b9406367b5f3cbc39c2fa9b519789)  
 [GitHub](https://github.com/exolover/smartcontracts)  
 Smart contract audited by[Hashex](https://hashex.org/). There is no critical severity issues were identified in the audited smart contracts.  
-_Project state: ICO  finished  at 2018-07-29. We continue our collaboration in branch of 
-settlement blockchain module develop for Exolover Platform._
+_Project state: ICO and token distribution was finished  at August, 2018. We continue our collaboration in branch of settlement blockchain module develop for Exolover Platform._
 ---  
 
 ### ITSynergis  
@@ -28,7 +27,7 @@ _Project state: ICO  in progress._
 ---
 
 ### PAX  
-PAX token sale and ERC20 advanced smart contracts with **token exchange** function. Smart contract deployed in Rinkeby network and waiting for project team audit.
+PAX token sale and ERC20 advanced smart contracts with **token exchange** function. Smart contract deployed in Rinkeby network and waiting for project team audit.  
 [Project repo](https://gitlab.com/max_siz/pax/)
 _Project state: pause._  
 ---
@@ -37,5 +36,12 @@ _Project state: pause._
 [CRYPTOCOIN INSURANCE](https://ccin.io/)  
 [CCINToken](https://etherscan.io/token/0x0e5d8cf7fedc38c4716eb7e2a55a1f040313deb2)
 [Project repo](https://github.com/cryptocoininsurance/smartcontracts)
-_Project state: ICO  in progress._  
+_Project state: ICO  in progress, will finish at December, 2018._  
 ---
+
+### Arround
+[Arround](https://arround.io/)  
+[Project repo](https://gitlab.com/max_siz/arround)  
+_Project state: ICO  finished  at 2018-11-16. Token distribution in progress._  
+
+* * * * 
