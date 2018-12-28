@@ -15,7 +15,7 @@ _Project state: Designed at December 2018._
 ### Arround
 [Arround](https://arround.io/)  
 [Project repo](https://gitlab.com/max_siz/arround)  
-[Main net deployed](https://etherscan.io/token/0xcb089b8ae76b5df461d40e957603f7a59aea9e0d)
+[Main net deployed](https://etherscan.io/token/0xcb089b8ae76b5df461d40e957603f7a59aea9e0d)  
 _Project state: ICO  finished  at 2018-11-16. Token distribution in progress._  
 
 * * * * 
