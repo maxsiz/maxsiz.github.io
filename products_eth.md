@@ -3,6 +3,39 @@ layout: page
 title: Ethereum smart contracts
 ---
 
+### Arround
+[Arround](https://arround.io/)  
+[Project repo](https://gitlab.com/max_siz/arround)  
+[Main net deployed](https://etherscan.io/token/0xcb089b8ae76b5df461d40e957603f7a59aea9e0d)
+_Project state: ICO  finished  at 2018-11-16. Token distribution in progress._  
+
+* * * * 
+
+### CRYPTOCOIN INSURANCE
+[CRYPTOCOIN INSURANCE](https://ccin.io/)  
+[CCINToken](https://etherscan.io/token/0x0e5d8cf7fedc38c4716eb7e2a55a1f040313deb2)
+[Project repo](https://github.com/cryptocoininsurance/smartcontracts)  
+_Project state: ICO  in progress, will finish at December, 2018._  
+
+---
+
+
+### PAX  
+PAX token sale and ERC20 advanced smart contracts with **token exchange** function. Smart contract deployed in Rinkeby network and waiting for project team audit.  
+[Project repo](https://gitlab.com/max_siz/pax/)  
+_Project state: pause._  
+
+---
+
+
+### Cryptoindex  
+[Cryptoindex](https://cryptoindex.io/)  
+[CIXToken](https://rinkeby.etherscan.io/token/0x0db720da802ea43ba7e725c868cd6fed2db06a9c) 
+In May 2018 CIX100 ERC20 compatible smart contract, with multitransfer  and multisig mint function have been developed,  tested and audited by [Cryptosec](https://www.cryptosec.us). Audit report was [perfect](/files/CryptoIndexAudit_v3.00_eng.pdf).  
+_Project state: ICO  in progress._  
+
+---
+
 ### Exolover
 [ExoLover](https://exolover.io/)  
 [Token sale  contract](https://etherscan.io/address/xfc8a3dfdde7c6d0408c6e4e0af1193a681a9c5fb)  
@@ -21,32 +54,3 @@ _Project state: Modular ICO  in progress._
 
 ---
 
-### Cryptoindex  
-[Cryptoindex](https://cryptoindex.io/)  
-[CIXToken](https://rinkeby.etherscan.io/token/0x0db720da802ea43ba7e725c868cd6fed2db06a9c) 
-In May 2018 CIX100 ERC20 compatible smart contract, with multitransfer  and multisig mint function have been developed,  tested and audited by [Cryptosec](https://www.cryptosec.us). Audit report was [perfect](/files/CryptoIndexAudit_v3.00_eng.pdf).  
-_Project state: ICO  in progress._  
-
----
-
-### PAX  
-PAX token sale and ERC20 advanced smart contracts with **token exchange** function. Smart contract deployed in Rinkeby network and waiting for project team audit.  
-[Project repo](https://gitlab.com/max_siz/pax/)  
-_Project state: pause._  
-
----
-
-### CRYPTOCOIN INSURANCE
-[CRYPTOCOIN INSURANCE](https://ccin.io/)  
-[CCINToken](https://etherscan.io/token/0x0e5d8cf7fedc38c4716eb7e2a55a1f040313deb2)
-[Project repo](https://github.com/cryptocoininsurance/smartcontracts)  
-_Project state: ICO  in progress, will finish at December, 2018._  
-
----
-
-### Arround
-[Arround](https://arround.io/)  
-[Project repo](https://gitlab.com/max_siz/arround)  
-_Project state: ICO  finished  at 2018-11-16. Token distribution in progress._  
-
-* * * * 
