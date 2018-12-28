@@ -6,7 +6,7 @@ title: Ethereum smart contracts
 ### Synvote  
 [Project repo](https://gitlab.com/max_siz/synvote)  
 [First Mainnet deploy](https://etherscan.io/address/
-x2c3177cfa17a8e10dfc2a39a572652601683d95c)
+x2c3177cfa17a8e10dfc2a39a572652601683d95c)  
 Simple vote smart contract with  winner reward.
 _Project state: Designed at December 2018._  
 
