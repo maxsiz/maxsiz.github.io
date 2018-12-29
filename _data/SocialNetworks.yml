@@ -98,5 +98,5 @@ yelp:
 
 telegram:
   name: "Telegram"
-  baseURL: "https://t.me/msmobile"
+  baseURL: "https://t.me/"
   icon: "fa-telegram"
