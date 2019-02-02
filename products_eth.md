@@ -16,7 +16,7 @@ _Project state: Designed at December 2018._
 [Arround](https://arround.io/)  
 [Project repo](https://gitlab.com/max_siz/arround)  
 [Main net deployed](https://etherscan.io/token/0xcb089b8ae76b5df461d40e957603f7a59aea9e0d)  
-_Project state: ICO  finished  at 2018-11-16. Token distribution in progress._  
+_Project state: ICO  finished  at 2018-11-16. Tokens are distributed._  
 
 * * * * 
 
@@ -24,7 +24,7 @@ _Project state: ICO  finished  at 2018-11-16. Token distribution in progress._
 [CRYPTOCOIN INSURANCE](https://ccin.io/)  
 [CCINToken](https://etherscan.io/token/0x0e5d8cf7fedc38c4716eb7e2a55a1f040313deb2)
 [Project repo](https://github.com/cryptocoininsurance/smartcontracts)  
-_Project state: ICO  in progress, will finish at December, 2018._  
+_Project state: ICO  finished in Jan 2019._  
 
 ---
 
