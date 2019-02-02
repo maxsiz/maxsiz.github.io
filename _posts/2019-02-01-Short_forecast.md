@@ -13,5 +13,5 @@ Everyone knows the blockchain trilemma, which Vitalik Buterin formulated. He sai
 One class of solutions for increase scalability is the so-called payment channels and state channels. I suppose that in the near future we will see an increase in the number of new and maturation of old solutions (like the Raiden Network). We also plan to participate in this segment of development. Especially in terms of embedding such solutions into existing messengers (Telegram)
 
 ### Links
-[Steemet post, from synpat service](https://steemit.com/synpat/@menaskop/max-sizyh-about-ethereum)
+[Steemet post, from synpat service](https://steemit.com/synpat/@menaskop/max-sizyh-about-ethereum)  
 [Ethereum tx with this post permlink](https://etherscan.io/tx/0xf58bd6d021bc69ffed8459d64de4d14aaae5a46d13dec06523ba501459de5fe3#decodetab)
