@@ -5,7 +5,7 @@ subtitle: Why you'd want to make deal with us
 ---
 
 My name is Maxim Sizykh, software engineer with more then 15 years experience in FinTech.
-CEO founder IBER, LLC.  IBER LLC  is one of companies from [IberGroup](http://iber.group)
+CEO founder IBER, LLC.  
 [Company Details](https://tochka.com/my/168f14e23e64430b8b463a3cfce28ac1)  
 
 ### Our history
