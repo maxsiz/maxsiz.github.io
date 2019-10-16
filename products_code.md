@@ -3,6 +3,12 @@ layout: page
 title: Other projects
 ---
 
+### Order's remote managing system 
+[food-logistic.ru](https://food-logistic.ru/)  
+Customer account and integration with the supplier accounting system
+_Production fsince August, 2019_
+
+* * *
 ### Sharing post service
 [Old version](http://podoroge.net/)
 [Rebrend version](http://handypost.online/)  
@@ -13,12 +19,6 @@ _Project state: Start in 2016, in progress._
 Vote bot
 [Project repo](https://gitlab.com/max_siz/vote_bot)  
 _MVP May, 2017_ 
-
-***
-### Personal telegram bot helper
-“LogBot”  @LogBookBot  
-_MVP Nov-Dec, 2017_
-
 
 * * * 
 ### 4K telegram bot
