@@ -23,6 +23,7 @@ description:  Blockchain Developer Team
 
 # List of links in the navigation bar
 navbar-links:
+  IberGroup Team: "iber-group-team"
   About Us: "aboutus"
   Products:
     - Ethereum smart contracts: "products_eth"
