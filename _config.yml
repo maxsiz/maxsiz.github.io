@@ -23,6 +23,8 @@ description:  Blockchain Developer Team
 
 # List of links in the navigation bar
 navbar-links:
+  Research: "research"
+  Development: "development"
   Iber Group Team: "iber-group-team"
   About Us: "aboutus"
   Products:
