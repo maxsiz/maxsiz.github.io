@@ -4,10 +4,18 @@ title: Other projects
 ---
 
 
-### Order's remote managing system 
-[food-logistic.ru](https://food-logistic.ru/)  
-Customer account and integration with the supplier accounting system
-_Production since August, 2019_
+
+### Envelop web3 app 
+[Web3 app for wrapped NFT](https://app.envelop.is/)  
+Cross-chain protocol to provide NFT with real value.  
+_Production since August, 2021_
+
+* * *  
+
+### Exolover web app
+[Web app for collaborative viewing of adult content](https://app.exolover.io/)  
+One of the features is the ability to feel the pulse of a partner through a fitness bracelet.  
+_Production since July, 2021_
 
 * * *
 
@@ -31,8 +39,8 @@ _MVP May, 2017_
 
 * * * 
  
-### Sharing post service
-[Rebrend version](http://handypost.ru/)  
-_Project state: Start in 2016, in progress._
+### Irkutsk kvartals SGIS
+[Rebrend version](https://sgis.irkkvartal.ru/)  
+_Project state: Start in 2016, production._
 
 * * * 

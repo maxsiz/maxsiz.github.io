@@ -3,6 +3,14 @@ layout: page
 title: Ethereum smart contracts
 ---
 
+### Envelop Protocol 
+[Project repo](https://github.com/niftsy/niftsysmarts)  
+[Docs an deploy info](https://docs.envelop.is/key-documents/white-paper)    
+Cross-chain protocol to provide NFT with real value.   
+_Project state: Production from September 2021._  
+
+* * *
+
 ### Synvote  
 [Project repo](https://gitlab.com/max_siz/synvote)  
 [First Mainnet deploy](https://etherscan.io/address/
