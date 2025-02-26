@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Iber Group Team
-subtitle: Many discuss the digital economy, and we create it.
+subtitle: Many talk about the digital economy, but we are actively building it.
 ---
 
 
