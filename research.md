@@ -6,9 +6,10 @@ subtitle: Many discuss the digital economy, and we create it.
 
 
 ### Our Research Domains
-**Ethereum**
+**Ethereum & EVM-based**
+* smart NFT (wraped NFTs, NFT2.0)
 * zkSNARK solutions
-* decentralized exchanges
+* DEX
 
 **Bluetooth Low Energy**
 * mesh nets
