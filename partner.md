@@ -3,7 +3,6 @@ layout: page
 subtitle: Our partners
 ---
 
-https://ubdn.com/
 [![UBD Network](/img/ubd_network.png)](https://ubdn.com/){:target="_blank"}
 [![Envelop](/img/envelop512.png)](https://envelop.is/){:target="_blank"}
 [![Iber.Homes](https://iber.homes/_next/static/media/logo.309b696f.svg)](https://iber.homes/){:target="_blank"}
