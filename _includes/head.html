@@ -6,6 +6,8 @@
   <title>{% if page.use-site-title %}{{ site.title }} {{ site.title-separator }} {{ site.description }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
 
   <meta name="author" content="{{ site.author.name }}" />
+  <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | prepend: site.baseurl | replace: '//', '/' }}" />
+  <link rel="icon" type="image/png" href="{{ '/img/iber_0_300.png' | prepend: site.baseurl | replace: '//', '/' }}" />
 
   {% if page.subtitle %}
   <meta name="description" content="{{ page.subtitle }}">
