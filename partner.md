@@ -1,6 +1,8 @@
 ---
 layout: page
+title: Partners
 subtitle: Our partners
+meta-description: Explore Iber partners across blockchain infrastructure, Web3 products, digital assets, and applied technology collaborations.
 ---
 
 [![UBD Network](/img/ubd_network.png)](https://ubdn.com/){:target="_blank"}
@@ -11,7 +13,6 @@ subtitle: Our partners
 [![Synergis](/img/synergislogo.svg)](http://itsynergis.ru/){:target="_blank"}
 [![Demeter](/img/demeter_logo.png)](http://demeter.site/){:target="_blank"}
 [![Peaceplus](/img/peaceplus_logo01_0826.png)](http://peaceplus.org//){:target="_blank"}
-
 
 
 

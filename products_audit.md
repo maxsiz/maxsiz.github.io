@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Ethereum smart contracts code audit
+meta-description: Review Ethereum smart contract audit engagements delivered by Iber for Envelop, Peace Plus, Lottery, and other projects.
 ---
 
 ### Envelop V1 - smart contracts audit 
@@ -23,4 +24,4 @@ _January, 2018_
 [smart contract audit(ru)](https://goo.gl/L2thsj)  
 _August, 2017_
 
-* * * * 
+* * * *

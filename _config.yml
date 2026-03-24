@@ -4,7 +4,7 @@
 # baseurl is the website's URL without the hostname
 
 # If you are building a simple GitHub user page (https://username.github.io) then use these settings:
-url: "https://maxsiz.github.io"
+url: "https://iber.dev"
 baseurl: ""
 
 # If you are building a GitHub project page then use these settings:
@@ -17,7 +17,12 @@ baseurl: ""
 title: Iber
 
 # Short description of your site
-description:  Blockchain Developer Team
+description: Blockchain developer team focused on Ethereum, Web3, and protocol engineering
+lang: "en"
+locale: "en_US"
+logo: "/img/iber_0_300.png"
+default_share_image: "/img/bigsolidity_black2.png"
+organization_name: "Iber Homes Pte. Ltd."
 
 # --- Navigation bar options --- #
 
@@ -104,7 +109,7 @@ share-links-active:
 
 # How to display the link to the website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "http://iber.dev"  # eg. "deanattali.com/beautiful-jekyll"
+url-pretty: "https://iber.dev"  # eg. "deanattali.com/beautiful-jekyll"
 
 # --- Web Statistics Section --- #
 
@@ -181,8 +186,10 @@ link-tags: true
 
 # Exclude these files from production site
 exclude:
+  - AGENTS.md
   - CHANGELOG.md
   - CNAME
+  - codex
   - Dockerfile
   - Gemfile
   - Gemfile.lock

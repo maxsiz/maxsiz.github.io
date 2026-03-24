@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Ethereum smart contracts
+meta-description: Browse Ethereum smart contract projects delivered by Iber, including Envelop, Synvote, Arround, CCIN, and other protocol work.
 ---
 
 ### Envelop Protocol 
@@ -70,4 +71,3 @@ _Project state: ICO and token distribution was finished  at August, 2018. We con
 _Project state: Modular ICO  in progress._  
 
 ---
-

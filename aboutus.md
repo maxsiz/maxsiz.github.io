@@ -2,6 +2,7 @@
 layout: page
 title: About Iber
 subtitle: Why would you like to make a deal with us?
+meta-description: Learn about Iber, Maxim Sizykh, and the team's background in fintech, Ethereum, and decentralized product development.
 ---
 
 My name is Maxim Sizykh, software engineer with more then 20 years experience in FinTech.
@@ -15,6 +16,5 @@ Since the beginning of the 21st century, I have engaged with banking software de
 ### Team (core)
 **Maxim Sizykh**, CEO, smart contract developer, [Full CV](https://goo.gl/TokaGv)    
 **Alex Agadganov**, Q&A, PM
-
 
 

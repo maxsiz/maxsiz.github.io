@@ -9,8 +9,10 @@
 
 {% if internal %}
   {% capture linkurl %}{{ site.baseurl }}/{{ include.link[1] }}{% endcapture %}
+  {% assign current_path = page.url | default: "/" | replace: "/index.html", "/" | remove: ".html" %}
+  {% assign target_path = linkurl | replace: "//", "/" | replace: "/index.html", "/" | remove: ".html" %}
 {% else %}
   {% capture linkurl %}{{ include.link[1] }}{% endcapture %}
 {% endif %}
 
-<a href="{{ linkurl }}">{{ include.link[0] }}</a>
+<a href="{{ linkurl }}"{% if internal and current_path == target_path %} aria-current="page"{% endif %}>{{ include.link[0] }}</a>

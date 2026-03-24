@@ -3,17 +3,58 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
 
-  <title>{% if page.use-site-title %}{{ site.title }} {{ site.title-separator }} {{ site.description }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  {% assign page_lang = page.lang | default: site.lang | default: "en" %}
+  {% assign page_locale = page.locale | default: site.locale | default: "en_US" %}
+  {% assign canonical_path = page.url | default: "/" %}
+  {% if canonical_path == "/index.html" %}
+    {% assign canonical_path = "/" %}
+  {% elsif canonical_path != "/" and canonical_path contains "/index.html" %}
+    {% assign canonical_path = canonical_path | replace: "/index.html", "/" %}
+  {% endif %}
+  {% assign canonical_url = canonical_path | absolute_url %}
 
-  <meta name="author" content="{{ site.author.name }}" />
-  <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | prepend: site.baseurl | replace: '//', '/' }}" />
-  <link rel="icon" type="image/png" href="{{ '/img/iber_0_300.png' | prepend: site.baseurl | replace: '//', '/' }}" />
+  {% assign seo_title = site.title %}
+  {% if page.meta-title %}
+    {% assign seo_title = page.meta-title %}
+  {% elsif page.use-site-title %}
+    {% capture seo_title %}{{ site.title }} {{ site.title-separator }} {{ site.description }}{% endcapture %}
+  {% elsif page.title %}
+    {% capture seo_title %}{{ page.title }} {{ site.title-separator }} {{ site.title }}{% endcapture %}
+  {% endif %}
+  {% assign seo_title = seo_title | strip %}
 
-  {% if page.subtitle %}
-  <meta name="description" content="{{ page.subtitle }}">
+  {% assign seo_description = page.meta-description | default: page.subtitle %}
+  {% if seo_description == nil or seo_description == "" %}
+    {% assign raw_excerpt = page.excerpt | default: page.content | default: site.description %}
+    {% assign seo_description = raw_excerpt | strip_html | strip_newlines | replace: "  ", " " | replace: "  ", " " | strip | truncate: 160 %}
+  {% endif %}
+  {% assign seo_description = seo_description | strip_html | strip_newlines | replace: "  ", " " | replace: "  ", " " | strip %}
+
+  {% assign seo_robots = page.robots | default: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" %}
+  {% assign twitter_handle = site.author.twitter | default: site.social-network-links.twitter | default: site.twitter.username %}
+  {% assign seo_image = page.share-img | default: page.image | default: site.default_share_image | default: site.avatar | default: site.logo | default: site.title-img %}
+  {% if seo_image %}
+    {% assign seo_image = seo_image | absolute_url %}
+  {% endif %}
+  {% assign twitter_card = "summary" %}
+  {% if page.share-img or page.image or site.default_share_image %}
+    {% assign twitter_card = "summary_large_image" %}
   {% endif %}
 
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }} {{ site.title-separator }} {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+  <title>{{ seo_title }}</title>
+  <meta name="description" content="{{ seo_description | xml_escape }}" />
+  <meta name="author" content="{{ site.author.name | xml_escape }}" />
+  <meta name="robots" content="{{ seo_robots }}" />
+  <meta name="googlebot" content="{{ seo_robots }}" />
+  <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | prepend: site.baseurl | replace: '//', '/' }}" />
+  <link rel="icon" type="image/png" href="{{ '/img/iber_0_300.png' | prepend: site.baseurl | replace: '//', '/' }}" />
+  <link rel="canonical" href="{{ canonical_url }}" />
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }} {{ site.title-separator }} {{ site.description }}" href="{{ '/feed.xml' | absolute_url }}" />
+  {% if page.alternate-hreflangs %}
+    {% for alternate in page.alternate-hreflangs %}
+  <link rel="alternate" hreflang="{{ alternate.lang }}" href="{{ alternate.url }}" />
+    {% endfor %}
+  {% endif %}
 
   {% include gtag.html %}
   {% include gtm_head.html %}
@@ -60,66 +101,37 @@
   <meta property="fb:app_id" content="{{ site.fb_app_id }}" />
   {% endif %}
 
-  {% if page.meta-title %}
-  <meta property="og:title" content="{{ page.meta-title }}" />
-  {% elsif page.title %}
-  <meta property="og:title" content="{{ page.title }}" />
+  <meta property="og:site_name" content="{{ site.title | xml_escape }}" />
+  <meta property="og:locale" content="{{ page_locale }}" />
+  <meta property="og:title" content="{{ seo_title | xml_escape }}" />
+  <meta property="og:description" content="{{ seo_description | xml_escape }}" />
+  {% if page.layout == "post" %}
+  <meta property="og:type" content="article" />
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />
+  <meta property="article:author" content="{{ site.author.name | xml_escape }}" />
   {% else %}
-  <meta property="og:title" content="{{ site.title }}" />
-  {% endif %}
-
-   {% if page.meta-description %}
-  <meta property="og:description" content="{{ page.meta-description }}">
-  {% elsif page.subtitle %}
-  <meta property="og:description" content="{{ page.subtitle }}">
-  {% else %}
-  <meta property="og:description" content="{{ page.content | strip_html | xml_escape | truncatewords: 50 }}">
-  {% endif %}
-
-
   <meta property="og:type" content="website" />
-
-  {% if page.id %}
-  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
-  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
-  {% else %}
-  <meta property="og:url" content="{{ site.url }}{{ page.url | remove: '/index.html' | remove: '.html' }}" />
-  <link rel="canonical" href="{{ site.url }}{{ page.url | remove: '/index.html' | remove: '.html' }}" />
   {% endif %}
-
-  {% if page.share-img %}
-  <meta property="og:image" content="{{ page.share-img }}" />
-  {% elsif site.avatar %}
-  <meta property="og:image" content="{{ site.url }}{{ site.avatar }}" />
+  <meta property="og:url" content="{{ canonical_url }}" />
+  {% if seo_image %}
+  <meta property="og:image" content="{{ seo_image }}" />
   {% endif %}
 
 
   <!-- Twitter summary cards -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="@{{ site.author.twitter }}" />
-  <meta name="twitter:creator" content="@{{ site.author.twitter }}" />
-
-  {% if page.meta-title %}
-  <meta name="twitter:title" content="{{ page.meta-title }}" />
-  {% elsif page.title %}
-  <meta name="twitter:title" content="{{ page.title }}" />
-  {% else %}
-  <meta name="twitter:title" content="{{ site.title }}" />
+  <meta name="twitter:card" content="{{ twitter_card }}" />
+  {% if twitter_handle %}
+  <meta name="twitter:site" content="@{{ twitter_handle }}" />
+  <meta name="twitter:creator" content="@{{ twitter_handle }}" />
+  {% endif %}
+  <meta name="twitter:title" content="{{ seo_title | xml_escape }}" />
+  <meta name="twitter:description" content="{{ seo_description | xml_escape }}" />
+  {% if seo_image %}
+  <meta name="twitter:image" content="{{ seo_image }}" />
+  <meta name="twitter:image:alt" content="{{ page.title | default: site.title | xml_escape }}" />
   {% endif %}
 
-  {% if page.meta-description %}
-  <meta name="twitter:description" content="{{ page.meta-description }}">
-  {% elsif page.subtitle %}
-  <meta name="twitter:description" content="{{ page.subtitle }}">
-  {% else %}
-  <meta name="twitter:description" content="{{ page.content | strip_html | xml_escape | truncatewords: 50 }}">
-  {% endif %}
-
-  {% if page.share-img %}
-  <meta name="twitter:image" content="{{ page.share-img }}" />
-  {% elsif site.avatar %}
-  <meta name="twitter:image" content="{{ site.url }}{{ site.avatar }}" />
-  {% endif %}
+  {% include structured-data.html canonical_url=canonical_url seo_title=seo_title seo_description=seo_description seo_image=seo_image page_lang=page_lang %}
 
   {% if site.matomo %}
   {% include matomo.html %}
