@@ -7,7 +7,7 @@ meta-description: Meet the Iber Group team behind blockchain research, smart con
 
 
 ### Iber Group Team 
-**Dmitry Burimenko**, Iber Group Founder,Business analyst,  [Full CV](https://drive.google.com/file/d/1nXYdH4sOzfDugQivFBUpAdIEJJEqOYeT/view)  
+**Dmitry Burimenko**, Iber Group Founder,Business analyst,  [LinkedIn](https://www.linkedin.com/in/dmitrii-iberhomes)  
 **Max Siz**, Iber Homes Core contributor, smart contract developer, [Full CV](https://goo.gl/TokaGv)    
 **Alex Agadganov**, QA, PM  
 **Tasya Sizykh**, Traffic Manager (targetologist), [Contact](https://t.me/tasisita)  
