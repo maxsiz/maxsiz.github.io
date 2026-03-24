@@ -6,8 +6,8 @@ meta-description: Learn about Iber, Maxim Sizykh, and the team's background in f
 ---
 
 My name is Maxim Sizykh, software engineer with more then 20 years experience in FinTech.
-CEO founder IBER, LLC.  
-[Company Details](https://tochka.com/my/168f14e23e64430b8b463a3cfce28ac1)  
+Iber Homes Contributor.  
+[Company Details](https://companieshouse.sg/iber-homes-pte-ltd-202451676M)  
 
 ### Our history
 
@@ -16,5 +16,3 @@ Since the beginning of the 21st century, I have engaged with banking software de
 ### Team (core)
 **Maxim Sizykh**, CEO, smart contract developer, [Full CV](https://goo.gl/TokaGv)    
 **Alex Agadganov**, Q&A, PM
-
-
