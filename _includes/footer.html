@@ -2,6 +2,7 @@
   <div class="container beautiful-jekyll-footer">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <nav aria-label="Social links">
         <ul class="list-inline text-center footer-links">
           {%- for link in site.social-network-links -%}
             {%- assign curkey = link[0] -%}
@@ -23,6 +24,7 @@
             </li>
           {%- endfor -%}
         </ul>
+        </nav>
       <p class="copyright text-muted">
       {{ site.author.name }}
       &nbsp;&bull;&nbsp;

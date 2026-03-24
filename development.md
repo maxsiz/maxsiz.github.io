@@ -2,6 +2,7 @@
 layout: page
 title: Development
 subtitle: Magic time when a small team can create capacious decisions
+meta-description: Iber provides EVM smart contract development, Web3 apps, server-side engineering, firmware debugging, and technical product planning.
 ---
 
 
@@ -17,4 +18,3 @@ subtitle: Magic time when a small team can create capacious decisions
 
 **Tech concept & task design and planing**  
   * helping to understand
-

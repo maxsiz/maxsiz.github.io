@@ -1,6 +1,7 @@
 ---
 layout: page
 title: 'Tag Index'
+meta-description: Browse the Iber blog by tag to find articles about Ethereum, NFTs, blockchain research, and protocol development.
 ---
 
 {%- capture site_tags -%}
@@ -23,7 +24,7 @@ title: 'Tag Index'
     <div class="post-list">
         {%- for post in site.tags[tag] -%}
             <div class="tag-entry">
-                <a href="{{- site.url -}}{{- post.url -}}">{{- post.title -}}</a>
+                <a href="{{- post.url | relative_url -}}">{{- post.title -}}</a>
                 <div class="entry-date">
                     <time datetime="{{- post.date | date_to_xmlschema -}}">{{- post.date | date: "%B %d, %Y" -}}</time>
                 </div>

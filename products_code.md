@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Other projects
+meta-description: See Web3 applications, APIs, bots, and custom software projects delivered by Iber for blockchain and adjacent products.
 ---
 
 
@@ -30,17 +31,17 @@ Lending page express analizer - 4K-metodology by ITSynergis.
 @synergisbot
 _August, 2018_ 
 
-* * * 
+* * *
 
 ### Predictor telegram bot 
 Vote bot
 [Project repo](https://gitlab.com/max_siz/vote_bot)  
 _MVP May, 2017_ 
 
-* * * 
- 
+* * *
+
 ### Irkutsk kvartals SGIS
 [Rebrend version](https://sgis.irkkvartal.ru/)  
 _Project state: Start in 2016, production. - project on pause_
 
-* * * 
+* * *
