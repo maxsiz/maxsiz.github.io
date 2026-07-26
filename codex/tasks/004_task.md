@@ -53,7 +53,7 @@
 1. **DNS TXT на `iber.dev`** для верификации в Search Console:
    `google-site-verification=ddFX9ll5X3TZOLZHJRxaH22xwyetUqt_wPnMH0K_cTw`
    Домен на Cloudflare, но, судя по всему, не на том аккаунте, к которому есть токен у инфраструктуры Envelop.
-2. **Связка GA4 ↔ Search Console** — только через UI, ресурса в Admin API не существует (проверено в discovery-документе v1beta и v1alpha). Требует, чтобы личный аккаунт был одновременно verified owner в GSC и Editor в GA4 property.
+2. **Связка GA4 ↔ Search Console** — только через UI, ресурса в Admin API не существует (проверено в discovery-документе v1beta и v1alpha). Пошаговая инструкция — в разделе «Связка GA4 ↔ Search Console» ниже.
 3. **Repository secrets** `GA4_PROPERTY_ID` = `547103578` и `GA_SERVICE_ACCOUNT_JSON` — **см. решение по ключу ниже**.
 4. Bing Webmaster Tools — импорт из GSC после верификации.
 
@@ -74,6 +74,33 @@
 - **Размещение property.** Создан внутри GA4-аккаунта `Envelop_acc` (`accounts/393356740`), потому что другого доступного нет. Создание GA4-аккаунта через API запрещено правилами Google. Если iber.dev должен жить в отдельном аккаунте — аккаунт заводится руками в UI, потом Admin → Property → Move.
 
 **Baseline GSC снять сейчас невозможно:** данные начинают копиться с момента верификации, задним числом Search Console их не восстанавливает. Реальный baseline — примерно через 3 дня после появления TXT-записи.
+
+### Связка GA4 ↔ Search Console (только вручную)
+
+Ресурса в Admin API нет ни в v1beta, ни в v1alpha — есть `bigQueryLinks`, `googleAdsLinks`, `adSenseLinks`, `searchAds360Links`, `displayVideo360AdvertiserLinks`, `firebaseLinks`, и всё. Автоматизировать нечем.
+
+**Предусловия (без них кнопка связки не сработает):**
+- аккаунт — verified owner в GSC для `iber.dev`
+- тот же аккаунт — Editor или Administrator в GA4 property `547103578`
+
+**Важно про порядок:** домен в GSC надо верифицировать **под тем аккаунтом, который потом делает связку**. Если верификацию выполнит сервис-аккаунт, owner'ом станет он, и список на шаге 5 окажется пустым.
+
+**Шаги:**
+1. `analytics.google.com` → убедиться, что выбрано property **iber.dev** (в аккаунте `Envelop_acc` есть ещё unisafe и Envelop Index)
+2. **Admin** (шестерёнка внизу слева)
+3. Колонка **Property** → **Product links** → **Search Console links**
+4. **Link**
+5. **Choose accounts** → `iber.dev` → **Confirm**
+6. **Next** → web stream `iber.dev` (`https://iber.dev`) → **Next**
+7. **Submit**
+
+**Шаг, который обычно пропускают:** коллекция отчётов Search Console в GA4 по умолчанию не опубликована, и связка сама по себе ничего не показывает.
+
+8. **Reports** → **Library** (внизу слева)
+9. Карточка коллекции **Search Console** → «⋮» → **Publish**
+10. В левом меню появляется раздел с отчётами «Queries» и «Google organic search traffic»
+
+Данные подтягиваются в течение примерно 48 часов после связки.
 
 **Требует уточнения у партнёров (§3.4):**
 - `ubdn.com` — 404 на корне, 403 глубже. Похоже на WAF, а не на мёртвый сайт. Ссылка оставлена
