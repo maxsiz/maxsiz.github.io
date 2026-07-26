@@ -20,7 +20,7 @@
 |---|---|---|
 | 0. Подготовка | ✅ | Окружение Jekyll поднято, pre-commit хук собирает сайт перед каждым коммитом |
 | 1.1 Sitemap | ✅ | Сделано в рамках Фазы 7 — кастомный `sitemap.xml` |
-| 1.2 GA4 | 🟡 | Настройка через Google API идёт, ждём Measurement ID |
+| 1.2 GA4 | ✅ | `G-ELXPSZHXH5`, property `547103578`. Проверено в браузере: `page_view` и `contact_click` долетают |
 | 1.3 Timezone | ✅ | `Asia/Irkutsk` |
 | 1.4 Enforce HTTPS | ✅ | Включено владельцем. Проверено: `maxsiz.github.io` → `https://iber.dev/`, `http://iber.dev` → `https://iber.dev/` |
 | 2. On-page | ✅ | meta-description постам, meta-title страницам, пагинация noindex |
@@ -32,15 +32,37 @@
 | 8. Верификация | 🟡 | Локальные проверки прогнаны; онлайн-чеклист — после деплоя |
 | 9. Аналитика | 🟡 | Код `contact_click` и выгрузка готовы, но не активны без доступов |
 
+### Аналитика: фактическое состояние (2026-07-26)
+
+| Параметр | Значение |
+|---|---|
+| Measurement ID | `G-ELXPSZHXH5` |
+| Property ID (Data API) | `547103578` |
+| Data stream | `properties/547103578/dataStreams/15328786990` → `https://iber.dev` |
+| GA4 account | `accounts/393356740` («Envelop_acc») |
+| Key events | `contact_click` ✅, `file_download` ✅ — отмечены до первого хита |
+| Enhanced measurement | включено полностью, в т.ч. `fileDownloadsEnabled` |
+| Event data retention | 14 месяцев (дефолтные 2 отрезали бы годовые сравнения) |
+| Custom dimensions | `method`, `link_location`, `link_url` — без регистрации эти параметры недоступны в отчётах и Data API |
+
+**Проверено в браузере на проде:** `page_view` уходит с `tid=G-ELXPSZHXH5`; клики по реальным ссылкам футера дают `contact_click` с `method=email|telegram|github` и `link_location=footer`.
+
 ### Что осталось и от кого зависит
 
-**От владельца сайта:**
-1. GA4 Measurement ID → `_config.yml` (§1.2, §9.2)
-2. Enforce HTTPS в Settings → Pages (§1.4)
-3. Service account с Viewer на GA4 property и GSC property + secrets `GA_SERVICE_ACCOUNT_JSON`, `GA4_PROPERTY_ID` (§9.5)
-4. Верификация домена в GSC, подача sitemap, Bing Webmaster (§9.4)
-5. Отметить `contact_click` и `file_download` как key events в GA4 Admin (§9.3)
-6. Решение по Consent Mode v2 (§9.6)
+**Требует действий владельца:**
+1. **DNS TXT на `iber.dev`** для верификации в Search Console:
+   `google-site-verification=ddFX9ll5X3TZOLZHJRxaH22xwyetUqt_wPnMH0K_cTw`
+   Домен на Cloudflare, но, судя по всему, не на том аккаунте, к которому есть токен у инфраструктуры Envelop.
+2. **Связка GA4 ↔ Search Console** — только через UI, ресурса в Admin API не существует (проверено в discovery-документе v1beta и v1alpha). Требует, чтобы личный аккаунт был одновременно verified owner в GSC и Editor в GA4 property.
+3. **Repository secrets** `GA4_PROPERTY_ID` = `547103578` и `GA_SERVICE_ACCOUNT_JSON` — **см. решение по ключу ниже**.
+4. Bing Webmaster Tools — импорт из GSC после верификации.
+
+**Открытые решения:**
+- **Ключ сервис-аккаунта.** Единственный доступный SA `unisafe-driven@digital-yeti-501512-j9` — админ на *всех* GA4-property Envelop и owner GSC-property `unisafe.envelop.is`. Репозиторий `maxsiz/maxsiz.github.io` **публичный**. Радиус поражения несоразмерен задаче «раз в неделю прочитать отчёт». Правильный путь — отдельный read-only SA, но `iam.googleapis.com` в проекте `digital-yeti-501512-j9` выключен, включить может только владелец GCP-проекта.
+- **Размещение property.** Создан внутри GA4-аккаунта `Envelop_acc`, потому что другого доступного нет. Создание GA4-аккаунта через API запрещено правилами Google. Если iber.dev должен жить отдельно — аккаунт заводится руками, потом Admin → Property → Move.
+- **Timezone property** — `Etc/UTC`, тогда как сайт живёт в `Asia/Irkutsk`. Влияет на границы суток в отчётах. Менять или нет — решить до накопления данных, потом смена искажает исторические сравнения.
+
+**Baseline GSC снять сейчас невозможно:** данные начинают копиться с момента верификации, задним числом Search Console их не восстанавливает. Реальный baseline — примерно через 3 дня после появления TXT-записи.
 
 **Требует уточнения у партнёров (§3.4):**
 - `ubdn.com` — 404 на корне, 403 глубже. Похоже на WAF, а не на мёртвый сайт. Ссылка оставлена
