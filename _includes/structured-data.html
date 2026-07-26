@@ -149,6 +149,31 @@
 </script>
 {% endif %}
 
+{% comment %}
+  FAQPage. The same list drives _includes/faq.html, because Google only accepts
+  this schema when the questions and answers are visible on the page.
+{% endcomment %}
+{% if page.faq %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": {{ canonical_url | append: "#faq" | jsonify }},
+  "mainEntity": [
+    {% for item in page.faq %}{
+      "@type": "Question",
+      "name": {{ item.q | jsonify }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ item.a | jsonify }}
+      }
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}
+
 {% comment %} Team pages opt in with a people list in their front matter. {% endcomment %}
 {% if page.people %}
 {% for person in page.people %}

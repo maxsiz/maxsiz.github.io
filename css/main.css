@@ -844,3 +844,23 @@ td.gutter {
   font-style: italic;
   font-size: 16px;
 }
+
+/* FAQ blocks -- rendered from the `faq` list in front matter, see
+   _includes/faq.html. Kept visually quiet so they read as supporting
+   content rather than competing with the page body. */
+.faq {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #EEE;
+}
+.faq-item {
+  margin-bottom: 22px;
+}
+.faq-question {
+  font-size: 19px;
+  margin-bottom: 6px;
+}
+.faq-answer {
+  margin: 0;
+  color: #404040;
+}
