@@ -2,6 +2,7 @@
 layout: post
 title: Short forecast
 subtitle: Short term forecast on Ethereum scalability from MaximS
+meta-description: Ethereum scalability forecast for 2019 — the blockchain trilemma, payment and state channels, Raiden Network, and embedding them into messengers like Telegram.
 tags: [Ethereum, steem,synpat]
 ---
 

@@ -524,13 +524,24 @@ footer .theme-by {
   color: #FFF;
   text-shadow: 1px 1px 3px #000;
 }
-.intro-header .page-heading h1 {
+/* .heading-fallback is the small-screen copy of the title on pages with a
+   bigimg header. It is styled like the h1 but is not one, so the document
+   keeps exactly one h1 in the DOM. */
+.intro-header .page-heading h1,
+.intro-header .page-heading .heading-fallback {
   margin-top: 0;
   font-size: 50px;
 }
-.intro-header .post-heading h1 {
+.intro-header .post-heading h1,
+.intro-header .post-heading .heading-fallback {
   margin-top: 0;
   font-size: 35px;
+}
+.intro-header .heading-fallback {
+  margin-bottom: 10px;
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-weight: 700;
+  line-height: 1.1;
 }
 .intro-header .page-heading .page-subheading,
 .intro-header .post-heading .post-subheading {
@@ -578,10 +589,12 @@ footer .theme-by {
   .intro-header.big-img .post-heading  {
     padding: 150px 0;
   }
-  .intro-header .page-heading h1 {
+  .intro-header .page-heading h1,
+  .intro-header .page-heading .heading-fallback {
     font-size: 80px;
   }
-  .intro-header .post-heading h1 {
+  .intro-header .post-heading h1,
+  .intro-header .post-heading .heading-fallback {
     font-size: 50px;
   }
   .intro-header.big-img .img-desc {

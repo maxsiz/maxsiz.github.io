@@ -69,6 +69,34 @@
   - `docker run -d -p 4000:4000 --name beautiful-jekyll -v "$PWD":/srv/jekyll beautiful-jekyll`
 - If Ruby gems or other dependencies are missing, ask before installing anything new.
 
+### Local setup (once per clone)
+
+```bash
+bundle config set --local path vendor/bundle
+bundle install
+git config core.hooksPath .githooks
+```
+
+- Gems install into `vendor/bundle`, which is gitignored and excluded in `_config.yml`.
+  `exclude` in `_config.yml` **replaces** Jekyll's defaults, so `vendor` and `.bundle`
+  must stay in that list or the build breaks with a site_template error.
+- `Gemfile` pins `github-pages` to the version GitHub Pages itself builds with, so a
+  local build matches production. Check https://pages.github.com/versions/ before bumping.
+- `webrick` is an explicit dependency because it left Ruby's stdlib in 3.0 and
+  Jekyll 3.x needs it for `jekyll serve`.
+
+### Pre-commit check
+
+`.githooks/pre-commit` runs `bundle exec jekyll build --strict_front_matter` and asserts
+that `_site/sitemap.xml` exists and is non-trivial. A failing build aborts the commit.
+
+- Enable with `git config core.hooksPath .githooks` (the hook lives in the repo, but git
+  does not enable hooks automatically on clone).
+- It builds the working tree, not the staged snapshot — it catches the common case, not
+  every case.
+- Bypass with `git commit --no-verify` when committing docs-only changes and the build
+  is known good.
+
 ## Safe Assumptions For Future Work
 
 - Most routine tasks here will be one of:

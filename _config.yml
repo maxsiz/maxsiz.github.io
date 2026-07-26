@@ -21,7 +21,11 @@ description: Blockchain developer team focused on Ethereum, Web3, and protocol e
 lang: "en"
 locale: "en_US"
 logo: "/img/iber_0_300.png"
-default_share_image: "/img/bigsolidity_black2.png"
+# Must stay 1200x630 (1.91:1) -- it is the fallback og:image for every page,
+# and head.html always requests a large summary card.
+default_share_image: "/img/iber_share_1200x630.png"
+default_share_image_width: 1200
+default_share_image_height: 630
 organization_name: "Iber Homes Pte. Ltd."
 
 # --- Navigation bar options --- #
@@ -155,7 +159,7 @@ title-separator: "-"
 # --- Don't need to touch anything below here (but you can if you want) --- #
 
 # Output options (more information on Jekyll's site)
-timezone: "Irkutsk/IRKT"
+timezone: "Asia/Irkutsk"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
@@ -185,6 +189,8 @@ defaults:
 link-tags: true
 
 # Exclude these files from production site
+# NB: setting `exclude` replaces Jekyll's defaults, so vendor/ and .bundle/
+# have to be listed explicitly or a local `bundle install` breaks the build.
 exclude:
   - AGENTS.md
   - CHANGELOG.md
@@ -196,6 +202,8 @@ exclude:
   - LICENSE
   - README.md
   - Vagrantfile
+  - .bundle
+  - vendor
 
 # prose.io config
 prose:
@@ -251,7 +259,8 @@ prose:
 
 plugins:
   - jekyll-paginate
-  - jekyll-sitemap
+# jekyll-sitemap is deliberately absent: it cannot exclude the paginator's
+# /page2/ pages or date non-post pages. sitemap.xml in the repo root does both.
 
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189

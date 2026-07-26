@@ -6,17 +6,43 @@
 {% assign organization_name = site.organization_name | default: site.title %}
 {% assign organization_logo = site.logo | default: site.title-img | default: site.avatar %}
 
+{% comment %}
+  Build Organization.sameAs from the footer's social links, so the profiles
+  stay declared in one place (_config.yml) instead of being duplicated here.
+  rss/email/telephone are skipped -- sameAs takes profile URLs, not endpoints.
+{% endcomment %}
+{% assign social_urls = "" %}
+{% for link in site.social-network-links %}
+  {% assign social_key = link[0] %}
+  {% assign social_handle = link[1] %}
+  {% unless social_key == "rss" or social_key == "email" or social_key == "telephone" %}
+    {% assign social_meta = site.data.SocialNetworks[social_key] %}
+    {% if social_meta.baseURL and social_handle %}
+      {% capture social_urls %}{{ social_urls }}{{ social_meta.baseURL }}{{ social_handle }},{% endcapture %}
+    {% endif %}
+  {% endunless %}
+{% endfor %}
+{% assign organization_same_as = social_urls | split: "," %}
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": {{ site.url | append: "/#organization" | jsonify }},
   "name": {{ organization_name | jsonify }},
-  "url": {{ site.url | jsonify }}{% if organization_logo %},
+  "url": {{ site.url | jsonify }},
+  "description": {{ site.description | strip_html | strip_newlines | strip | jsonify }}{% if organization_logo %},
   "logo": {
     "@type": "ImageObject",
     "url": {{ organization_logo | absolute_url | jsonify }}
-  }{% endif %}
+  }{% endif %}{% if site.social-network-links.email %},
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "email": {{ site.social-network-links.email | jsonify }},
+    "availableLanguage": ["en"]
+  }{% endif %}{% if organization_same_as.size > 0 %},
+  "sameAs": {{ organization_same_as | jsonify }}{% endif %}
 }
 </script>
 
@@ -35,7 +61,12 @@
 }
 </script>
 
-{% unless page.robots and page.robots contains "noindex" %}
+{% comment %}
+  seo_robots is resolved in head.html and already accounts for paginated pages,
+  so page.robots alone is not enough to tell whether this document is indexable.
+{% endcomment %}
+{% assign resolved_robots = include.seo_robots | default: page.robots %}
+{% unless resolved_robots and resolved_robots contains "noindex" %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -65,4 +96,74 @@
   }{% endif %}
 }
 </script>
+
+{% comment %}
+  Breadcrumbs. Only two levels are emitted, because the "Products" navbar entry
+  is a dropdown with no page of its own -- a breadcrumb item pointing at a URL
+  that does not exist would be worse than a shorter trail. Skipped on the
+  homepage, which is its own first crumb.
+{% endcomment %}
+{% assign home_url = site.url | append: "/" %}
+{% if canonical_url != home_url and page.title %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": {{ site.title | jsonify }},
+      "item": {{ site.url | append: "/" | jsonify }}
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ page.title | jsonify }},
+      "item": {{ canonical_url | jsonify }}
+    }
+  ]
+}
+</script>
+{% endif %}
+
+{% comment %} Commercial pages opt in with service-type in their front matter. {% endcomment %}
+{% if page.service-type %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": {{ canonical_url | append: "#service" | jsonify }},
+  "name": {{ page.service-name | default: page.title | jsonify }},
+  "serviceType": {{ page.service-type | jsonify }},
+  "description": {{ seo_description | jsonify }},
+  "url": {{ canonical_url | jsonify }},
+  "areaServed": {
+    "@type": "Place",
+    "name": "Worldwide"
+  },
+  "provider": {
+    "@id": {{ site.url | append: "/#organization" | jsonify }}
+  }
+}
+</script>
+{% endif %}
+
+{% comment %} Team pages opt in with a people list in their front matter. {% endcomment %}
+{% if page.people %}
+{% for person in page.people %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": {{ person.name | jsonify }}{% if person.job-title %},
+  "jobTitle": {{ person.job-title | jsonify }}{% endif %}{% if person.url %},
+  "sameAs": {{ person.url | jsonify }}{% endif %},
+  "worksFor": {
+    "@id": {{ site.url | append: "/#organization" | jsonify }}
+  }
+}
+</script>
+{% endfor %}
+{% endif %}
 {% endunless %}

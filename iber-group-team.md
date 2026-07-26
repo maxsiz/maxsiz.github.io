@@ -1,8 +1,22 @@
 ---
 layout: page
 title: Iber Group Team
+meta-title: "Iber Group Team — Blockchain Engineers"
 subtitle: Many talk about the digital economy, but we are actively building it.
 meta-description: Meet the Iber Group team behind blockchain research, smart contract engineering, product management, and growth.
+people:
+  - name: Dmitry Burimenko
+    job-title: Founder, Business Analyst
+    url: https://www.linkedin.com/in/dmitrii-iberhomes
+  - name: Maxim Sizykh
+    job-title: Core Contributor, Smart Contract Developer
+    url: https://www.linkedin.com/in/maksim-sizykh-2688ba7a
+  - name: Alex Agadganov
+    job-title: QA, Project Manager
+  - name: Tasya Sizykh
+    job-title: Traffic Manager
+  - name: Gleb Nechaev
+    job-title: Python Developer
 ---
 
 
@@ -12,3 +26,7 @@ meta-description: Meet the Iber Group team behind blockchain research, smart con
 **Alex Agadganov**, QA, PM  
 **Tasya Sizykh**, Traffic Manager (targetologist), [Contact](https://t.me/tasisita)  
 **Gleb Nechaev**, Python developer, [CV](https://hh.ru/resume/a8518a4dff0fe54c050039ed1f6245776b6966)
+
+* * *
+
+Read more [about Iber](/aboutus), the [services we provide](/development), and the [projects we have delivered](/products_eth).

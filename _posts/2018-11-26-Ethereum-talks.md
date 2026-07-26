@@ -1,7 +1,8 @@
 ---
 layout: post
-title: Ethereum tallks
+title: Ethereum talks
 subtitle: About ethereum "vulnerabilities"
+meta-description: A developer's analysis of two 2018 media reports on Ethereum vulnerabilities — the EVM bug claim and the gas token attack said to drain exchange wallets.
 tags: [Ethereum]
 ---
 

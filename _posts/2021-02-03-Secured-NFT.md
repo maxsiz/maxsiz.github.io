@@ -2,6 +2,7 @@
 layout: post
 title: Secured NFT
 subtitle: NFT secured with ERC20
+meta-description: Secured NFTs — backing an ERC-721 token with locked ERC-20 or ETH collateral, so that minting freezes value on the contract and burning releases it back.
 tags: [Ethereum, NFT, erc721]
 ---
 

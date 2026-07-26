@@ -1,7 +1,10 @@
 ---
 layout: page
 title: Ethereum smart contracts
+meta-title: "Ethereum Smart Contract Projects | Iber"
 meta-description: Browse Ethereum smart contract projects delivered by Iber, including Envelop, Synvote, Arround, CCIN, and other protocol work.
+service-name: "Ethereum smart contract engineering"
+service-type: "Smart contract development"
 ---
 
 ### Envelop Protocol 
@@ -65,9 +68,15 @@ _Project state: ICO and token distribution was finished  at August, 2018. We con
 ---  
 
 ### ITSynergis  
-[ITSynergis](http://itsynergis.ru/)
+[ITSynergis](https://itsynergis.ru/)
 [SynergisSGRToken](https://etherscan.io/address/0x1a2bc7d9a607227e7f137cd40da54fc8760663c2#code)     
 [SynergisProxyDeposit](https://etherscan.io/address/0x4802fe0bf7eb3b3b0dce3ede89c575341f10e3e0#code)   
 _Project state: Modular ICO  in progress._  
 
 ---
+
+---
+
+### Related
+
+See also: [smart contract audits](/products_audit), [other code projects](/products_code), and our posts on [distributed liquidity](/2024-11-27-Distributed_Liquidity/) and [secured NFTs](/2021-02-03-Secured-NFT/).

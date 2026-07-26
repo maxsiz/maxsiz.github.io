@@ -1,0 +1,60 @@
+---
+layout: null
+permalink: /sitemap.xml
+sitemap: false
+---
+{%- comment -%}
+  Hand-rolled instead of jekyll-sitemap, which cannot do either of the two
+  things this site needs:
+
+  - exclude the paginator's /page2/ and beyond. Those are generated from
+    index.html and inherit its front matter, so `sitemap: false` there would
+    drop the homepage along with them. They are recognised here by their URL.
+  - give pages a lastmod. The plugin only dates posts.
+
+  site.html_pages is used rather than site.pages so that css/xml/txt files
+  carrying front matter (main.css, feed.xml, robots.txt) stay out.
+{%- endcomment -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for page in site.html_pages -%}
+{%- if page.sitemap == false -%}{%- continue -%}{%- endif -%}
+{%- if page.robots and page.robots contains "noindex" -%}{%- continue -%}{%- endif -%}
+
+{%- comment -%} /page2/, /page3/ ... : "/page" prefix followed by a number {%- endcomment -%}
+{%- assign pager_parts = page.url | split: "/page" -%}
+{%- if pager_parts.size == 2 and pager_parts[0] == "" -%}
+  {%- assign pager_num = pager_parts[1] | replace: "/", "" | plus: 0 -%}
+  {%- if pager_num > 0 -%}{%- continue -%}{%- endif -%}
+{%- endif -%}
+
+{%- assign clean_url = page.url | replace: "/index.html", "/" -%}
+{%- if clean_url == "/" %}{% assign priority = "1.0" %}
+{%- elsif clean_url contains "/products" or clean_url contains "/development" %}{% assign priority = "0.8" %}
+{%- elsif clean_url contains "/tags" %}{% assign priority = "0.5" %}
+{%- else %}{% assign priority = "0.7" %}{% endif %}
+  <url>
+    <loc>{{ clean_url | absolute_url }}</loc>
+    {%- if page.last_modified_at %}
+    <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>
+    {%- endif %}
+    <priority>{{ priority }}</priority>
+  </url>
+{%- endfor -%}
+{%- for post in site.posts %}
+  <url>
+    <loc>{{ post.url | absolute_url }}</loc>
+    <lastmod>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</lastmod>
+    <priority>0.6</priority>
+  </url>
+{%- endfor -%}
+{%- comment -%} The audit PDF is a landing page in its own right and worth indexing. {%- endcomment -%}
+{%- for file in site.static_files -%}
+{%- if file.extname == ".pdf" %}
+  <url>
+    <loc>{{ file.path | absolute_url }}</loc>
+    <priority>0.4</priority>
+  </url>
+{%- endif -%}
+{%- endfor %}
+</urlset>
