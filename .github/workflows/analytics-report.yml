@@ -24,15 +24,31 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # A missing secret is skipped on the weekly schedule, so the job does not
+      # go red every Monday for something nobody can fix from here. On a manual
+      # run it fails loudly instead: someone is watching, and a green run that
+      # quietly did nothing is worse than a red one.
       - name: Check credentials
         id: creds
         env:
           KEY: ${{ secrets.GA_SERVICE_ACCOUNT_JSON }}
+          PROP: ${{ secrets.GA4_PROPERTY_ID }}
         run: |
-          if [ -z "$KEY" ]; then
-            echo "GA_SERVICE_ACCOUNT_JSON is not set -- see task #4 phase 9.5"
+          missing=""
+          [ -z "$KEY" ]  && missing="$missing GA_SERVICE_ACCOUNT_JSON"
+          [ -z "$PROP" ] && missing="$missing GA4_PROPERTY_ID"
+
+          if [ -n "$missing" ]; then
+            echo "::warning::missing repository secrets:$missing"
+            echo "Set them in Settings -> Secrets and variables -> Actions."
+            echo "They must be *repository* secrets; environment secrets are not visible here."
+            if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+              echo "::error::manual run cannot proceed without:$missing"
+              exit 1
+            fi
             echo "ready=false" >> "$GITHUB_OUTPUT"
           else
+            echo "both secrets present (key length: ${#KEY} chars)"
             echo "ready=true" >> "$GITHUB_OUTPUT"
           fi
 
@@ -58,8 +74,15 @@ jobs:
       - name: Commit report
         if: steps.creds.outputs.ready == 'true'
         run: |
+          # Assert the report exists rather than letting `git add` on a missing
+          # path decide the outcome -- that failure mode reads as a git problem.
+          test -d codex/reports || { echo "::error::the script produced no report"; exit 1; }
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add codex/reports/
-          git diff --staged --quiet || git commit -m "#4 Add weekly analytics report"
-          git push
+          if git diff --staged --quiet; then
+            echo "::warning::report is byte-identical to the previous one, nothing to commit"
+          else
+            git commit -m "#4 Add weekly analytics report"
+            git push
+          fi
