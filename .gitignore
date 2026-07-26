@@ -13,3 +13,7 @@ vendor/
 .DS_Store
 Thumbs.db
 ehthumbs.db
+# python tooling
+__pycache__/
+*.pyc
+.venv/
