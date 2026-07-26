@@ -6,14 +6,14 @@ subtitle: Our partners
 meta-description: Explore Iber partners across blockchain infrastructure, Web3 products, digital assets, and applied technology collaborations.
 ---
 
-[![UBD Network](/img/ubd_network.png)](https://ubdn.com/){:target="_blank"}
-[![Envelop](/img/envelop512.png)](https://envelop.is/){:target="_blank"}
-[![Iber.Homes](https://iber.homes/_next/static/media/logo.309b696f.svg)](https://iber.homes/){:target="_blank"}
-[![ExoLover](/img/exologo.svg)](https://exolover.io/){:target="_blank"}
-[![IZZZIO](/img/izzz_note_200.png)](http://izzz.io/){:target="_blank"}
-[![Synergis](/img/synergislogo.svg)](http://itsynergis.ru/){:target="_blank"}
-[![Demeter](/img/demeter_logo.png)](http://demeter.site/){:target="_blank"}
-[![Peaceplus](/img/peaceplus_logo01_0826.png)](http://peaceplus.org//){:target="_blank"}
+[![UBD Network logo — blockchain infrastructure partner](/img/ubd_network.png)](https://ubdn.com/){:target="_blank" rel="noopener"}
+[![Envelop logo — wrapped NFT protocol partner](/img/envelop512.png)](https://envelop.is/){:target="_blank" rel="noopener"}
+[![Iber.Homes logo — real estate technology partner](/img/iber_homes_logo.svg)](https://iber.homes/){:target="_blank" rel="noopener"}
+[![ExoLover logo — Web3 product partner](/img/exologo.svg)](https://exolover.io/){:target="_blank" rel="noopener"}
+[![IZZZIO logo — blockchain platform partner](/img/izzz_note_200.png)](https://izzz.io/){:target="_blank" rel="noopener"}
+[![Synergis logo — IT engineering partner](/img/synergislogo.svg)](https://itsynergis.ru/){:target="_blank" rel="noopener"}
+![Demeter logo — applied technology partner](/img/demeter_logo.png)
+[![Peace Plus logo — social impact technology partner](/img/peaceplus_logo01_0826.png)](https://peaceplus.org/){:target="_blank" rel="noopener"}
 
 
 

@@ -11,7 +11,7 @@ _April, 2024_
 
 * * *
 ### Peace plus - smart contracts audit and advice
-[www.peaceplus.org](http://www.peaceplus.org/)
+[www.peaceplus.org](https://www.peaceplus.org/)
 _since September, 2019_
 
 * * *

@@ -66,7 +66,7 @@ _Project state: ICO and token distribution was finished  at August, 2018. We con
 ---  
 
 ### ITSynergis  
-[ITSynergis](http://itsynergis.ru/)
+[ITSynergis](https://itsynergis.ru/)
 [SynergisSGRToken](https://etherscan.io/address/0x1a2bc7d9a607227e7f137cd40da54fc8760663c2#code)     
 [SynergisProxyDeposit](https://etherscan.io/address/0x4802fe0bf7eb3b3b0dce3ede89c575341f10e3e0#code)   
 _Project state: Modular ICO  in progress._  
