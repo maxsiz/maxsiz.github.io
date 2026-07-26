@@ -67,6 +67,20 @@
   <meta name="author" content="{{ site.author.name | xml_escape }}" />
   <meta name="robots" content="{{ seo_robots }}" />
   <meta name="googlebot" content="{{ seo_robots }}" />
+  {% comment %}
+    Fonts and icons are render-blocking third-party requests. preconnect opens
+    the TCP+TLS handshake early instead of after the CSS parser reaches the
+    link; fonts.gstatic.com needs crossorigin because font files are fetched
+    in CORS mode.
+  {% endcomment %}
+  {% if layout.common-googlefonts or page.googlefonts %}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  {% endif %}
+  {% if layout.common-ext-css %}
+  <link rel="preconnect" href="https://maxcdn.bootstrapcdn.com" />
+  {% endif %}
+
   <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | prepend: site.baseurl | replace: '//', '/' }}" />
   <link rel="icon" type="image/png" href="{{ '/img/iber_0_300.png' | prepend: site.baseurl | replace: '//', '/' }}" />
   <link rel="canonical" href="{{ canonical_url }}" />
@@ -102,7 +116,7 @@
 
   {% if layout.common-googlefonts %}
     {% for font in layout.common-googlefonts %}
-      <link rel="stylesheet" href="//fonts.googleapis.com/css?family={{ font }}" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ font }}&amp;display=swap" />
     {% endfor %}
   {% endif %}
 
@@ -120,7 +134,7 @@
 
   {% if page.googlefonts %}
     {% for font in page.googlefonts %}
-      <link rel="stylesheet" href="//fonts.googleapis.com/css?family={{ font }}" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ font }}&amp;display=swap" />
     {% endfor %}
   {% endif %}
 

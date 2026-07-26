@@ -1,0 +1,51 @@
+---
+layout: null
+permalink: /llms.txt
+sitemap: false
+---
+{%- comment -%}
+  Generated from _config.yml and the site's own pages, so it cannot drift out
+  of sync with the navigation the way a hand-written copy would.
+{%- endcomment -%}
+# {{ site.organization_name | default: site.title }}
+
+> {{ site.description }}
+
+{{ site.title }} is a blockchain R&D team working on Ethereum and EVM-based
+systems: smart contract development, smart contract security audits, Web3
+applications, and applied protocol research. The team has been building on
+Ethereum since 2016 and operates as {{ site.organization_name }}, registered in
+Singapore.
+
+## Services
+
+- Smart contract development for EVM chains
+- Smart contract code audits
+- Web3 applications, APIs and server-side services
+- Hardware debug and firmware development (nRF52, CH549)
+- Technical concept and task design
+
+## Pages
+
+{% for page in site.html_pages -%}
+{%- if page.sitemap == false -%}{%- continue -%}{%- endif -%}
+{%- assign pager_parts = page.url | split: "/page" -%}
+{%- if pager_parts.size == 2 and pager_parts[0] == "" -%}
+  {%- assign pager_num = pager_parts[1] | replace: "/", "" | plus: 0 -%}
+  {%- if pager_num > 0 -%}{%- continue -%}{%- endif -%}
+{%- endif -%}
+{%- assign summary = page.meta-description | default: page.subtitle | strip_html | strip_newlines | strip -%}
+- [{{ page.title | default: site.title }}]({{ page.url | absolute_url }}){% if summary %}: {{ summary }}{% endif %}
+{% endfor %}
+## Writing
+
+{% for post in site.posts -%}
+{%- assign summary = post.meta-description | default: post.subtitle | strip_html | strip_newlines | strip -%}
+- [{{ post.title }}]({{ post.url | absolute_url }}) — {{ post.date | date: "%Y-%m-%d" }}{% if summary %}: {{ summary }}{% endif %}
+{% endfor %}
+## Contact
+
+- Email: {{ site.social-network-links.email }}
+- Telegram: https://t.me/{{ site.social-network-links.telegram }}
+- GitHub: https://github.com/{{ site.social-network-links.github }}
+- RSS: {{ '/feed.xml' | absolute_url }}

@@ -1,0 +1,16 @@
+{% comment %}
+  Visible counterpart to the FAQPage schema in structured-data.html. Google
+  requires the questions and answers to be present on the page itself, so the
+  markup and the schema are driven by the same `faq` list in front matter.
+{% endcomment %}
+{% if page.faq %}
+<section class="faq" aria-labelledby="faq-heading">
+  <h2 id="faq-heading">Frequently asked questions</h2>
+  {% for item in page.faq %}
+  <div class="faq-item">
+    <h3 class="faq-question">{{ item.q }}</h3>
+    <p class="faq-answer">{{ item.a }}</p>
+  </div>
+  {% endfor %}
+</section>
+{% endif %}
