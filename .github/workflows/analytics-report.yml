@@ -68,21 +68,40 @@ jobs:
         run: |
           printf '%s' '${{ secrets.GA_SERVICE_ACCOUNT_JSON }}' > "$RUNNER_TEMP/ga-key.json"
           export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/ga-key.json"
-          python3 codex/scripts/ga4_report.py --days 7 --write
+          python3 codex/scripts/ga4_report.py --days 7 > "$RUNNER_TEMP/report.md"
           rm -f "$RUNNER_TEMP/ga-key.json"
+          test -s "$RUNNER_TEMP/report.md" || { echo "::error::the script produced an empty report"; exit 1; }
 
-      - name: Commit report
+      # Primary delivery: the report renders on the run page itself, so reading
+      # it needs no checkout, no branch and no download.
+      - name: Publish to run summary
+        if: steps.creds.outputs.ready == 'true'
+        run: cat "$RUNNER_TEMP/report.md" >> "$GITHUB_STEP_SUMMARY"
+
+      # Durable copy. master is a protected branch and rightly refuses pushes
+      # from the bot, and a weekly automated pull request for a file nobody
+      # reviews is noise -- so history lives on its own branch instead.
+      - name: Append to the analytics-reports branch
         if: steps.creds.outputs.ready == 'true'
         run: |
-          # Assert the report exists rather than letting `git add` on a missing
-          # path decide the outcome -- that failure mode reads as a git problem.
-          test -d codex/reports || { echo "::error::the script produced no report"; exit 1; }
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add codex/reports/
-          if git diff --staged --quiet; then
-            echo "::warning::report is byte-identical to the previous one, nothing to commit"
+
+          if git ls-remote --exit-code --heads origin analytics-reports >/dev/null 2>&1; then
+            git fetch --depth=1 origin analytics-reports
+            git checkout -B analytics-reports origin/analytics-reports
           else
-            git commit -m "#4 Add weekly analytics report"
-            git push
+            echo "creating the analytics-reports branch"
+            git checkout -B analytics-reports
           fi
+
+          month=$(date -u +%Y-%m)
+          mkdir -p codex/reports
+          {
+            cat "$RUNNER_TEMP/report.md"
+            printf '\n\n---\n\n'
+          } >> "codex/reports/${month}.md"
+
+          git add "codex/reports/${month}.md"
+          git commit -m "#4 Add analytics report for $(date -u +%Y-%m-%d)"
+          git push origin analytics-reports
