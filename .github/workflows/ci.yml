@@ -1,0 +1,57 @@
+name: Build check
+
+# Same checks as .githooks/pre-commit, but on the staged-and-pushed state and
+# for anyone who has not enabled the hook (git does not enable repo hooks on
+# clone). This is the guard against the class of problem that produced the
+# phantom sitemap blocker in task #4.
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Build site
+        run: bundle exec jekyll build --strict_front_matter
+
+      - name: Check sitemap was generated
+        run: |
+          test -s _site/sitemap.xml || { echo "sitemap.xml missing or empty"; exit 1; }
+          locs=$(grep -c "<loc>" _site/sitemap.xml)
+          echo "sitemap has $locs URLs"
+          [ "$locs" -ge 5 ] || { echo "sitemap looks truncated"; exit 1; }
+          grep -q "/page2/" _site/sitemap.xml && { echo "paginated page leaked into sitemap"; exit 1; }
+          exit 0
+
+      - name: Install html-proofer
+        run: gem install html-proofer --no-document
+
+      - name: Check internal links, images and scripts
+        run: |
+          htmlproofer _site \
+            --disable-external \
+            --checks Links,Images,Scripts \
+            --no-ignore-empty-alt \
+            --no-ignore-missing-alt
+
+      # Third-party sites go down for reasons that have nothing to do with this
+      # repository -- during task #4 three partner domains answered differently
+      # within the same hour, and two of them block bots outright. Report, do
+      # not block.
+      - name: Check external links (advisory)
+        continue-on-error: true
+        run: |
+          htmlproofer _site \
+            --checks Links \
+            --only-4xx \
+            --ignore-status-codes "403,429"
