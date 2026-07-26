@@ -14,6 +14,46 @@
 
 ---
 
+## Статус реализации (обновлено 2026-07-26)
+
+| Фаза | Статус | Комментарий |
+|---|---|---|
+| 0. Подготовка | ✅ | Окружение Jekyll поднято, pre-commit хук собирает сайт перед каждым коммитом |
+| 1.1 Sitemap | ✅ | Сделано в рамках Фазы 7 — кастомный `sitemap.xml` |
+| 1.2 GA4 | ⛔ **блокер** | Нужен Measurement ID `G-XXXXXXXXXX` от владельца |
+| 1.3 Timezone | ✅ | `Asia/Irkutsk` |
+| 1.4 Enforce HTTPS | ⛔ **блокер** | Настройка в GitHub Settings → Pages, нет доступа |
+| 2. On-page | ✅ | meta-description постам, meta-title страницам, пагинация noindex |
+| 3. Технический SEO | ✅ | viewport, один H1, alt, https + `rel="noopener"` |
+| 4. Structured data | ✅ | Organization sameAs, BreadcrumbList, Service, Person |
+| 5. Open Graph | ✅ | Новая карточка 1200×630, размеры, `article:tag` |
+| 6. Контент | ✅ | Опечатки, вычитка, перелинковка |
+| 7. Sitemap и URL | ✅ | Кастомный sitemap; slug'и постов не меняли осознанно |
+| 8. Верификация | 🟡 | Локальные проверки прогнаны; онлайн-чеклист — после деплоя |
+| 9. Аналитика | 🟡 | Код `contact_click` и выгрузка готовы, но не активны без доступов |
+
+### Что осталось и от кого зависит
+
+**От владельца сайта:**
+1. GA4 Measurement ID → `_config.yml` (§1.2, §9.2)
+2. Enforce HTTPS в Settings → Pages (§1.4)
+3. Service account с Viewer на GA4 property и GSC property + secrets `GA_SERVICE_ACCOUNT_JSON`, `GA4_PROPERTY_ID` (§9.5)
+4. Верификация домена в GSC, подача sitemap, Bing Webmaster (§9.4)
+5. Отметить `contact_click` и `file_download` как key events в GA4 Admin (§9.3)
+6. Решение по Consent Mode v2 (§9.6)
+
+**Требует уточнения у партнёров (§3.4):**
+- `ubdn.com` — 404 на корне, 403 глубже. Похоже на WAF, а не на мёртвый сайт. Ссылка оставлена
+- `exolover.io` — плавает между 200 и Cloudflare 520. Ссылка оставлена
+- `demeter.site` — DNS не резолвится. Ссылка снята, логотип оставлен
+
+**Осознанно не делалось:**
+- Тела старых постов не редактировались — это переписывание, а не перелинковка
+- Slug'и постов не менялись (§7.1)
+- Performance/CWV, AI/GEO, CI с html-proofer — см. «Не в этом заходе»
+
+---
+
 ## Текущее состояние (аудит)
 
 | Категория | Оценка | Комментарий |
