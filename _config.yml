@@ -155,7 +155,7 @@ title-separator: "-"
 # --- Don't need to touch anything below here (but you can if you want) --- #
 
 # Output options (more information on Jekyll's site)
-timezone: "Irkutsk/IRKT"
+timezone: "Asia/Irkutsk"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
