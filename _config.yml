@@ -259,7 +259,8 @@ prose:
 
 plugins:
   - jekyll-paginate
-  - jekyll-sitemap
+# jekyll-sitemap is deliberately absent: it cannot exclude the paginator's
+# /page2/ pages or date non-post pages. sitemap.xml in the repo root does both.
 
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
