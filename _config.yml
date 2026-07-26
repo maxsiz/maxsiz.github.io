@@ -21,7 +21,11 @@ description: Blockchain developer team focused on Ethereum, Web3, and protocol e
 lang: "en"
 locale: "en_US"
 logo: "/img/iber_0_300.png"
-default_share_image: "/img/bigsolidity_black2.png"
+# Must stay 1200x630 (1.91:1) -- it is the fallback og:image for every page,
+# and head.html always requests a large summary card.
+default_share_image: "/img/iber_share_1200x630.png"
+default_share_image_width: 1200
+default_share_image_height: 630
 organization_name: "Iber Homes Pte. Ltd."
 
 # --- Navigation bar options --- #
