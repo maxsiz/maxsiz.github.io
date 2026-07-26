@@ -141,7 +141,9 @@ def gsc_section(start, end):
                     "Search Console does not backfill.\n")
         raise
 
-    def fmt(rows, label):
+    def fmt(rows, label=""):
+        # label only stands in for the dimensionless query, whose rows carry no
+        # keys; every dimensioned query always has them.
         return [[
             " / ".join(r.get("keys", [])) or label,
             r.get("clicks", 0),
@@ -163,7 +165,7 @@ def gsc_section(start, end):
     tracked = [r for r in query(["query"], limit=1000)
                if r.get("keys", [""])[0].lower() in TARGET_QUERIES]
     parts.append("\n### Target queries\n")
-    parts.append(table(headers, fmt(tracked, "-")))
+    parts.append(table(headers, fmt(tracked)))
 
     return "\n".join(parts)
 
