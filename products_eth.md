@@ -74,3 +74,9 @@ _Project state: ICO and token distribution was finished  at August, 2018. We con
 _Project state: Modular ICO  in progress._  
 
 ---
+
+---
+
+### Related
+
+See also: [smart contract audits](/products_audit), [other code projects](/products_code), and our posts on [distributed liquidity](/2024-11-27-Distributed_Liquidity/) and [secured NFTs](/2021-02-03-Secured-NFT/).

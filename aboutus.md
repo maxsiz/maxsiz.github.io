@@ -12,14 +12,20 @@ people:
     job-title: QA, Project Manager
 ---
 
-My name is Maxim Sizykh, software engineer with more then 20 years experience in FinTech.
+My name is Maxim Sizykh, a software engineer with more than 20 years of experience in FinTech.
 Iber Homes Contributor.  
 [Company Details](https://companieshouse.sg/iber-homes-pte-ltd-202451676M)  
 
 ### Our history
 
-Since the beginning of the 21st century, I have engaged with banking software development across various roles. Starting as a support specialist, I progressed through roles such as developer, tester, and business analyst, gaining comprehensive insights into the field. In 2017 I founded IBER  LLC.  Today, in **Iber Homes** we specialize in designing decentralized payment systems and developing Ethereum smart contracts. 
+Since the beginning of the 21st century, I have engaged with banking software development across various roles. Starting as a support specialist, I progressed through roles such as developer, tester, and business analyst, gaining comprehensive insights into the field. In 2017 I founded IBER LLC.  Today, in **Iber Homes** we specialize in designing decentralized payment systems and developing Ethereum smart contracts. 
 
 ### Team (core)
 **Maxim Sizykh**, Iber Homes Core Contributor, smart contract developer, [Full CV](https://goo.gl/TokaGv)    
 **Alex Agadganov**, Q&A, PM
+
+* * *
+
+### More about us
+
+The full roster is on the [Iber Group Team](/iber-group-team) page. What we build is listed under [development](/development) and [delivered projects](/products_eth); our collaborations are on the [partners](/partner) page.

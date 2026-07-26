@@ -26,3 +26,7 @@ people:
 **Alex Agadganov**, QA, PM  
 **Tasya Sizykh**, Traffic Manager (targetologist), [Contact](https://t.me/tasisita)  
 **Gleb Nechaev**, Python developer, [CV](https://hh.ru/resume/a8518a4dff0fe54c050039ed1f6245776b6966)
+
+* * *
+
+Read more [about Iber](/aboutus), the [services we provide](/development), and the [projects we have delivered](/products_eth).

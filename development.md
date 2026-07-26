@@ -10,14 +10,20 @@ service-type: "Blockchain software development"
 
 
 ### Development 
-**Softwear Development**
+**Software Development**
   * EVM smart contracts
   * web3 applications
   * server applications (e.g. Telegram bots)
 
-**Hardwear Debug and Firmware Development**  
+**Hardware Debug and Firmware Development**  
   * nRF52 SoC Family
   * CH549 Soc
 
-**Tech concept & task design and planing**  
+**Tech concept, task design and planning**  
   * helping to understand
+
+* * *
+
+### Related work
+
+See delivered projects: [Ethereum smart contracts](/products_eth), [smart contract audits](/products_audit), [Web3 apps and other code](/products_code). Our current directions are on the [research](/research) page.

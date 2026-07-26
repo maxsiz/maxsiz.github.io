@@ -28,3 +28,9 @@ _January, 2018_
 _August, 2017_
 
 * * * *
+
+* * *
+
+### Related
+
+See also: [Ethereum smart contract projects](/products_eth), [development services](/development), and our post on [crypto industry risks for 2026](/2025-12-09-Risks_Crypto_2026/).
