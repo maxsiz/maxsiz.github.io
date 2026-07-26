@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Iber Group Team
+meta-title: "Iber Group Team — Blockchain Engineers"
 subtitle: Many talk about the digital economy, but we are actively building it.
 meta-description: Meet the Iber Group team behind blockchain research, smart contract engineering, product management, and growth.
 ---

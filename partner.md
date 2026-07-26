@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Partners
+meta-title: "Iber Partners — Web3 & Blockchain"
 subtitle: Our partners
 meta-description: Explore Iber partners across blockchain infrastructure, Web3 products, digital assets, and applied technology collaborations.
 ---

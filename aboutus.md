@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About Iber
+meta-title: "About Iber — Blockchain R&D Team"
 subtitle: Why would you like to make a deal with us?
 meta-description: Learn about Iber, Maxim Sizykh, and the team's background in fintech, Ethereum, and decentralized product development.
 ---

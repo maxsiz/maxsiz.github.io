@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Ethereum smart contracts
+meta-title: "Ethereum Smart Contract Projects | Iber"
 meta-description: Browse Ethereum smart contract projects delivered by Iber, including Envelop, Synvote, Arround, CCIN, and other protocol work.
 ---
 

@@ -2,6 +2,7 @@
 layout: post
 title: Distributed Liquidity
 subtitle: NFT secured with ERC20
+meta-description: Distributed liquidity on Ethereum — using ERC-6551 token bound accounts, ERC-1167 minimal proxies and EIP-7702 to turn approving EOAs into a shared pool.
 tags: [Ethereum, wNFT, erc721]
 ---
 

@@ -23,6 +23,18 @@
   {% endif %}
   {% assign seo_title = seo_title | strip %}
 
+  {% comment %}
+    Pages 2+ of the paginator are generated from index.html and inherit its front
+    matter, so they cannot be told apart by page.* — only the paginator object
+    differs. Without this they duplicate the homepage title, description and
+    canonical, which is a self-inflicted duplicate in the index.
+  {% endcomment %}
+  {% assign is_paginated_page = false %}
+  {% if paginator and paginator.page > 1 %}
+    {% assign is_paginated_page = true %}
+    {% capture seo_title %}{{ seo_title }} {{ site.title-separator }} Page {{ paginator.page }}{% endcapture %}
+  {% endif %}
+
   {% assign seo_description = page.meta-description | default: page.subtitle %}
   {% if seo_description == nil or seo_description == "" %}
     {% assign raw_excerpt = page.excerpt | default: page.content | default: site.description %}
@@ -31,6 +43,9 @@
   {% assign seo_description = seo_description | strip_html | strip_newlines | replace: "  ", " " | replace: "  ", " " | strip %}
 
   {% assign seo_robots = page.robots | default: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" %}
+  {% if is_paginated_page %}
+    {% assign seo_robots = "noindex, follow" %}
+  {% endif %}
   {% assign twitter_handle = site.author.twitter | default: site.social-network-links.twitter | default: site.twitter.username %}
   {% assign seo_image = page.share-img | default: page.image | default: site.default_share_image | default: site.avatar | default: site.logo | default: site.title-img %}
   {% if seo_image %}
@@ -50,6 +65,13 @@
   <link rel="icon" type="image/png" href="{{ '/img/iber_0_300.png' | prepend: site.baseurl | replace: '//', '/' }}" />
   <link rel="canonical" href="{{ canonical_url }}" />
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }} {{ site.title-separator }} {{ site.description }}" href="{{ '/feed.xml' | absolute_url }}" />
+  {% comment %} paginator paths come without a trailing slash; canonical URLs have one {% endcomment %}
+  {% if paginator and paginator.previous_page %}
+  <link rel="prev" href="{{ paginator.previous_page_path | append: '/' | replace: '//', '/' | absolute_url }}" />
+  {% endif %}
+  {% if paginator and paginator.next_page %}
+  <link rel="next" href="{{ paginator.next_page_path | append: '/' | replace: '//', '/' | absolute_url }}" />
+  {% endif %}
   {% if page.alternate-hreflangs %}
     {% for alternate in page.alternate-hreflangs %}
   <link rel="alternate" hreflang="{{ alternate.lang }}" href="{{ alternate.url }}" />
