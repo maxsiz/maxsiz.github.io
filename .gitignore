@@ -3,6 +3,12 @@ _site
 .sass-cache
 .vagrant
 
+# local ruby toolchain
+vendor/
+.bundle/
+.jekyll-cache/
+.jekyll-metadata
+
 # general
 .DS_Store
 Thumbs.db

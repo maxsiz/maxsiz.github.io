@@ -185,6 +185,8 @@ defaults:
 link-tags: true
 
 # Exclude these files from production site
+# NB: setting `exclude` replaces Jekyll's defaults, so vendor/ and .bundle/
+# have to be listed explicitly or a local `bundle install` breaks the build.
 exclude:
   - AGENTS.md
   - CHANGELOG.md
@@ -196,6 +198,8 @@ exclude:
   - LICENSE
   - README.md
   - Vagrantfile
+  - .bundle
+  - vendor
 
 # prose.io config
 prose:
