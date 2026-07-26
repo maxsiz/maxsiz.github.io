@@ -102,8 +102,16 @@ def ga4_section(start, end):
 
 
 def gsc_section(start, end):
+    """Search Console figures, or a note explaining why they are missing.
+
+    Access is a separate grant from GA4 and arrives later -- the property has
+    to be verified first. A missing grant is a known state, not a crash: the
+    GA4 half of the report is still worth having, and a scheduled run that
+    goes red every week for a reason nobody can fix from here is noise.
+    """
     try:
         from googleapiclient.discovery import build
+        from googleapiclient.errors import HttpError
         from google.auth import default as google_auth_default
     except ImportError:
         fail("google-api-python-client not installed, see codex/scripts/requirements.txt")
@@ -121,6 +129,17 @@ def gsc_section(start, end):
         }
         response = service.searchanalytics().query(siteUrl=SITE_URL, body=body).execute()
         return response.get("rows", [])
+
+    try:
+        query([])
+    except HttpError as error:
+        if error.resp.status in (403, 404):
+            return (f"\n## Search Console\n\n_Not available: no access to `{SITE_URL}`._\n"
+                    "Verify the property and grant the service account access, "
+                    "then this section fills in on the next run. "
+                    "Figures start accumulating from the verification date -- "
+                    "Search Console does not backfill.\n")
+        raise
 
     def fmt(rows, label):
         return [[

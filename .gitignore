@@ -17,3 +17,6 @@ ehthumbs.db
 __pycache__/
 *.pyc
 .venv/
+
+# analytics ops runbook (local only)
+.seo-ops/
