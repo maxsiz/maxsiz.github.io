@@ -86,8 +86,12 @@ img::-moz-selection {
   background: transparent;
 }
 
+/* height:auto is required now that images carry width/height attributes --
+   without it max-width would squash them out of proportion. The attributes
+   are what lets the browser reserve space before the image loads (CLS). */
 img {
   max-width: 100%;
+  height: auto;
 }
 
 .disqus-comments {
