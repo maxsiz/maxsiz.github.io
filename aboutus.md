@@ -4,6 +4,12 @@ title: About Iber
 meta-title: "About Iber — Blockchain R&D Team"
 subtitle: Why would you like to make a deal with us?
 meta-description: Learn about Iber, Maxim Sizykh, and the team's background in fintech, Ethereum, and decentralized product development.
+people:
+  - name: Maxim Sizykh
+    job-title: Core Contributor, Smart Contract Developer
+    url: https://www.linkedin.com/in/maksim-sizykh-2688ba7a
+  - name: Alex Agadganov
+    job-title: QA, Project Manager
 ---
 
 My name is Maxim Sizykh, software engineer with more then 20 years experience in FinTech.

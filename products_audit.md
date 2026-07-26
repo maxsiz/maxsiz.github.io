@@ -3,6 +3,8 @@ layout: page
 title: Ethereum smart contracts code audit
 meta-title: "Ethereum Smart Contract Audits | Iber"
 meta-description: Review Ethereum smart contract audit engagements delivered by Iber for Envelop, Peace Plus, Lottery, and other projects.
+service-name: "Ethereum smart contract audit"
+service-type: "Smart contract security audit"
 ---
 
 ### Envelop V1 - smart contracts audit 
