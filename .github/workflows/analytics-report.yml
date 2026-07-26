@@ -1,0 +1,65 @@
+name: Weekly analytics report
+
+# Pulls GA4 + Search Console figures and commits them to codex/reports/.
+#
+# Requires two repository secrets; without them the job exits cleanly rather
+# than failing every Monday:
+#   GA_SERVICE_ACCOUNT_JSON  service account key, Viewer on both properties
+#   GA4_PROPERTY_ID          numeric GA4 property id
+#
+# Weekly rather than daily on purpose: standard GA4 reports lag 24-48h, so
+# daily numbers move under you after the fact.
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check credentials
+        id: creds
+        env:
+          KEY: ${{ secrets.GA_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$KEY" ]; then
+            echo "GA_SERVICE_ACCOUNT_JSON is not set -- see task #4 phase 9.5"
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-python@v5
+        if: steps.creds.outputs.ready == 'true'
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        if: steps.creds.outputs.ready == 'true'
+        run: pip install -r codex/scripts/requirements.txt
+
+      - name: Generate report
+        if: steps.creds.outputs.ready == 'true'
+        env:
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: |
+          printf '%s' '${{ secrets.GA_SERVICE_ACCOUNT_JSON }}' > "$RUNNER_TEMP/ga-key.json"
+          export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/ga-key.json"
+          python3 codex/scripts/ga4_report.py --days 7 --write
+          rm -f "$RUNNER_TEMP/ga-key.json"
+
+      - name: Commit report
+        if: steps.creds.outputs.ready == 'true'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add codex/reports/
+          git diff --staged --quiet || git commit -m "#4 Add weekly analytics report"
+          git push

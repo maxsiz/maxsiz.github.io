@@ -1,0 +1,6 @@
+# Analytics reporting only. Keep out of the Jekyll toolchain -- install into a
+# separate virtualenv:
+#   python3 -m venv .venv && .venv/bin/pip install -r codex/scripts/requirements.txt
+google-analytics-data>=0.18
+google-api-python-client>=2.100
+google-auth>=2.30

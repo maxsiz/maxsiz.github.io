@@ -1,0 +1,66 @@
+{% if site.gtag %}
+<script>
+/* Contact-click tracking for GA4.
+ *
+ * The site has no forms, so the only conversion actions available are clicks
+ * on contact links. GA4 enhanced measurement already covers outbound clicks
+ * and file_download, but it never fires on mailto: or tel:, which is exactly
+ * where the contact links live.
+ *
+ * Emits: contact_click { method, link_url, link_location }
+ * Mark it as a key event in GA4 Admin -> Events, otherwise it is recorded but
+ * never counted as a conversion.
+ */
+(function () {
+  'use strict';
+
+  if (typeof document.addEventListener !== 'function') { return; }
+
+  function methodFor(href) {
+    if (href.indexOf('mailto:') === 0) { return 'email'; }
+    if (href.indexOf('tel:') === 0) { return 'phone'; }
+    if (href.indexOf('t.me/') > -1 || href.indexOf('telegram.me/') > -1) { return 'telegram'; }
+    if (href.indexOf('github.com/') > -1) { return 'github'; }
+    if (href.indexOf('linkedin.com/') > -1) { return 'linkedin'; }
+    if (href.indexOf('twitter.com/') > -1 || href.indexOf('//x.com/') > -1) { return 'twitter'; }
+    if (href.indexOf('facebook.com/') > -1) { return 'facebook'; }
+    if (href.indexOf('instagram.com/') > -1) { return 'instagram'; }
+    return null;
+  }
+
+  function locationFor(link) {
+    var node = link;
+    while (node && node !== document.body) {
+      if (node.tagName === 'FOOTER' || (node.className && String(node.className).indexOf('footer') > -1)) {
+        return 'footer';
+      }
+      if (node.tagName === 'NAV' || (node.className && String(node.className).indexOf('navbar') > -1)) {
+        return 'navbar';
+      }
+      node = node.parentNode;
+    }
+    return 'body';
+  }
+
+  document.addEventListener('click', function (event) {
+    if (typeof gtag !== 'function') { return; }
+
+    var link = event.target;
+    while (link && link.tagName !== 'A') { link = link.parentNode; }
+    if (!link || !link.getAttribute) { return; }
+
+    var href = link.getAttribute('href');
+    if (!href) { return; }
+
+    var method = methodFor(href);
+    if (!method) { return; }
+
+    gtag('event', 'contact_click', {
+      method: method,
+      link_url: href,
+      link_location: locationFor(link)
+    });
+  }, true);
+})();
+</script>
+{% endif %}
