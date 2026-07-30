@@ -6,7 +6,7 @@ meta-description: Owning assets without touching them with your own address — 
 tags: [Ethereum, wNFT, Uniswap]
 ---
 
-Almost two years since [Envelop V2](https://github.com/dao-envelop/envelop-protocol-v2) shipped. Time to talk about what's next and what actually the way was.
+Almost two years since [Envelop V2](https://github.com/dao-envelop/envelop-protocol-v2) shipped. Time to talk about what's next and what the way there actually was.
 
 ### The elephant nobody wants to name
 
@@ -56,3 +56,6 @@ Not laundering. Not a mixer. Every tx is on-chain and traceable — which is exa
 It's about being unstoppable. Which is what this whole thing was supposed to be about in the first place.
 
 And it's honest.
+
+### Links
+[LinkedIn post, ](https://www.linkedin.com/feed/update/urn:li:activity:7487511339267973120/)  
