@@ -17,7 +17,7 @@ _Production since August, 2021_
 * * *  
 
 ### Exolover web app 
-[Web app for collaborative viewing of adult content](https://exolover.io/)  
+Web app for collaborative viewing of adult content.  
 One of the features is the ability to feel the pulse of a partner through a fitness bracelet.  
 _Production since July, 2021  - project on pause_
 
@@ -44,7 +44,7 @@ _MVP May, 2017_
 * * *
 
 ### Irkutsk kvartals SGIS
-[Rebrend version](https://sgis.irkkvartal.ru/)  
+[Rebrend version](http://sgis.irkkvartal.ru/)  
 _Project state: Start in 2016, production. - project on pause_
 
 * * *

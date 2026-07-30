@@ -28,7 +28,7 @@ _since September, 2019_
 * * *
 
 ### Lottery
-[smart contract audit(ru)](https://goo.gl/VbU2Ea)  
+Smart contract audit (ru), report not published.  
 _January, 2018_
 
 ***
