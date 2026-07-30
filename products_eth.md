@@ -7,6 +7,28 @@ service-name: "Ethereum smart contract engineering"
 service-type: "Smart contract development"
 ---
 
+### TokenLaunchHook
+[Project repo](https://github.com/maxsiz/uhi9-token-launch-hook)  
+[Live studio](https://uhi9-token-launch-hook.vercel.app/)  
+Uniswap V4 hook attached to a newly launched token's pool. Enforces fair-launch rules — anti-snipe, dynamic LP fee tax, conditional liquidity lock, whitelist phase — without modifying the ERC-20 token contract, and a single hook deployment per chain serves every launch. Jury pick at the Atrium Academy Uniswap Hook Incubator, Cohort 9.  
+_Project state: deployed on Ethereum mainnet, Unichain and Unichain Sepolia, June 2026._  
+
+* * *
+
+### Private Wallet
+[Project repo](https://github.com/dao-envelop/ethglobal-private-wallet)  
+ETHGlobal HackMoney 2026 entry. Assets are not held at the owner's EOA: they sit in a Uniswap V4 liquidity position and earn LP yield, so there is no owner-held balance for a stablecoin issuer to blacklist. A payment runs in one atomic transaction via a single-use proxy wallet and account abstraction (Uniswap Calibur) — withdraw part of the liquidity, swap to the target asset, send it to the recipient.  
+_Project state: demo, deployed on BSC and Unichain, February 2026._  
+
+* * *
+
+### UBD Network
+[Project repos](https://github.com/UBDNetwork)  
+The UBDN token with its lock-up distributors, the staking and attractor subsystems, and the DeTrust multisig family: ERC-1167 minimal-proxy templates where each signatory's powers start at a set date and time, built for inheritance-style custody.  
+_Project state: smart contracts developed 2023–2024._  
+
+* * *
+
 ### Envelop Protocol 
 [Project repo](https://github.com/niftsy/niftsysmarts)  
 [Docs an deploy info](https://docs.envelop.is/key-documents/white-paper)    
