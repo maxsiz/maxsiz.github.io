@@ -34,6 +34,7 @@ organization_name: "Iber Homes Pte. Ltd."
 navbar-links:
   Research: "research"
   Development: "development"
+  AI Agents: "ai-agents"
   Iber Group Team: "iber-group-team"
   About Us: "aboutus"
   Products:
