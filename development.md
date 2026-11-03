@@ -23,6 +23,7 @@ faq:
   * EVM smart contracts
   * web3 applications
   * server applications (e.g. Telegram bots)
+  * AI agent pipelines and agent integration for Web3 ([AI Agents](/ai-agents))
 
 **Hardware Debug and Firmware Development**  
   * nRF52 SoC Family

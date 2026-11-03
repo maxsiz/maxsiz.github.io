@@ -22,6 +22,7 @@ Singapore.
 - Smart contract development for EVM chains
 - Smart contract code audits
 - Web3 applications, APIs and server-side services
+- AI agent pipelines for Web3 and DeFi, with human approval gates
 - Hardware debug and firmware development (nRF52, CH549)
 - Technical concept and task design
 

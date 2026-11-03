@@ -15,6 +15,9 @@ service-type: "Applied blockchain research"
 * zkSNARK solutions
 * DEX
 
+**AI agents for DeFi**
+* agent pipelines for protocol onboarding and LP strategy research ([AI Agents](/ai-agents))
+
 **Bluetooth Low Energy**
 * mesh nets
 
