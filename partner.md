@@ -4,6 +4,7 @@ title: Partners
 meta-title: "Iber Partners — Web3 & Blockchain"
 subtitle: Our partners
 meta-description: Explore Iber partners across blockchain infrastructure, Web3 products, digital assets, and applied technology collaborations.
+last_modified_at: 2026-07-30
 ---
 
 ![UBD Network logo — blockchain infrastructure partner](/img/ubd_network.png){: width="257" height="119" loading="lazy"}

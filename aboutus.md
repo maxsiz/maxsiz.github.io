@@ -10,6 +10,7 @@ people:
     url: https://www.linkedin.com/in/maksim-sizykh-2688ba7a
   - name: Alex Agadganov
     job-title: QA, Project Manager
+last_modified_at: 2026-07-26
 ---
 
 My name is Maxim Sizykh, a software engineer with more than 20 years of experience in FinTech.

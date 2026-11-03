@@ -15,6 +15,7 @@ faq:
     a: Yes. Technical concept work and task design are part of what we do, including breaking a product idea down into an implementable specification.
   - q: How do we start a conversation?
     a: Write to the email address in the site footer or message us on Telegram. Both reach the team directly.
+last_modified_at: 2026-11-03
 ---
 
 
