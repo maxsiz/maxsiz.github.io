@@ -14,7 +14,7 @@
 ## Project Summary
 
 - This repository is a static Jekyll site based on the Beautiful Jekyll theme.
-- The live site configuration in `_config.yml` uses `url: https://maxsiz.github.io` and `baseurl: ""`.
+- The live site configuration in `_config.yml` uses `url: "https://iber.dev"` and `baseurl: ""`; `https://maxsiz.github.io` 301-redirects to it.
 - Custom domain is set via `CNAME` to `iber.dev`.
 - The current local branch is `master`.
 - `README.md` is mostly upstream theme documentation, not project-specific operational documentation.
@@ -22,7 +22,8 @@
 ## Stack
 
 - Ruby/Jekyll site with `github-pages` gem pinned in `Gemfile`.
-- Jekyll plugins enabled in `_config.yml`: `jekyll-paginate`, `jekyll-sitemap`.
+- Jekyll plugin enabled in `_config.yml`: `jekyll-paginate`. `sitemap.xml` and `llms.txt` are hand-written Liquid templates in the repo root (jekyll-sitemap is intentionally not used).
+- Pages set `last_modified_at` in front matter; it feeds `<lastmod>` in `sitemap.xml`. Update it when a page's content changes.
 - Docker-based local run is supported via `Dockerfile`.
 - Frontend assets are mostly static HTML, Liquid templates, CSS, and JS.
 
