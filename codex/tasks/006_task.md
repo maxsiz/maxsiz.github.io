@@ -10,6 +10,8 @@
 
 **Commit message prefix:** `#6`
 
+**Статус (2026-11-03):** ✅ выкачено на прод, Request indexing отправлен владельцем для `/ai-agents/`, `/research/`, `/development/`.
+
 **Решения владельца (2026-11-03):**
 - одна страница, на ней всё, что затрагивает AI;
 - пункт меню верхнего уровня «AI Agents»;
@@ -64,4 +66,4 @@ Permalink: `/ai-agents/` (новый публичный URL). Layout `page`, fro
 
 ## После деплоя
 
-- [ ] GSC → URL Inspection → Request indexing для `/ai-agents/`, `/research/`, `/development/` (вручную владельцем)
+- [x] GSC → URL Inspection → Request indexing для `/ai-agents/`, `/research/`, `/development/` (вручную владельцем)
