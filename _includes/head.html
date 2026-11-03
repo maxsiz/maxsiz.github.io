@@ -83,7 +83,9 @@
 
   <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | prepend: site.baseurl | replace: '//', '/' }}" />
   <link rel="icon" type="image/png" href="{{ '/img/iber_0_300.png' | prepend: site.baseurl | replace: '//', '/' }}" />
+  {% unless page.url == "/404.html" %}
   <link rel="canonical" href="{{ canonical_url }}" />
+  {% endunless %}
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }} {{ site.title-separator }} {{ site.description }}" href="{{ '/feed.xml' | absolute_url }}" />
   {% comment %} paginator paths come without a trailing slash; canonical URLs have one {% endcomment %}
   {% if paginator and paginator.previous_page %}
@@ -102,9 +104,15 @@
   {% include gtag-events.html %}
   {% include gtm_head.html %}
 
+  {% comment %}
+    Font Awesome is only used for footer and share icons, below the fold, so it
+    loads without blocking first paint: media="print" is fetched at low
+    priority and switched to "all" once loaded. noscript keeps it for no-JS.
+  {% endcomment %}
   {% if layout.common-ext-css %}
     {% for css in layout.common-ext-css %}
-      {% include ext-css.html css=css %}
+      <link rel="stylesheet" href="{{ css }}" media="print" onload="this.media='all'" />
+      <noscript><link rel="stylesheet" href="{{ css }}" /></noscript>
     {% endfor %}
   {% endif %}
 
@@ -114,9 +122,14 @@
     {% endfor %}
   {% endif %}
 
+  {% comment %}
+    Same non-blocking pattern for web fonts: text paints at once in the
+    fallback font and swaps to Lora / Open Sans when they arrive.
+  {% endcomment %}
   {% if layout.common-googlefonts %}
     {% for font in layout.common-googlefonts %}
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ font }}&amp;display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ font }}&amp;display=swap" media="print" onload="this.media='all'" />
+      <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ font }}&amp;display=swap" /></noscript>
     {% endfor %}
   {% endif %}
 
