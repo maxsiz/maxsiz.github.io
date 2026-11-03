@@ -45,7 +45,7 @@ _MVP May, 2017_
 * * *
 
 ### Irkutsk kvartals SGIS
-[Rebrend version](http://sgis.irkkvartal.ru/)  
+Rebrend version (sgis.irkkvartal.ru)  
 _Project state: Start in 2016, production. - project on pause_
 
 * * *
