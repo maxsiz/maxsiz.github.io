@@ -116,8 +116,21 @@
     {% endfor %}
   {% endif %}
 
+  {% comment %}
+    The single header image is the LCP element on pages that have one
+    (see header.html); start fetching it before the stylesheets.
+  {% endcomment %}
+  {% if page.bigimg and page.bigimg.first == nil %}
+  <link rel="preload" as="image" href="{{ page.bigimg | prepend: site.baseurl | replace: '//', '/' }}" fetchpriority="high" />
+  {% endif %}
+
+  {% comment %}
+    bootstrap-social.css only styles the share buttons, which exist only on
+    posts with social-share; elsewhere it is a render-blocking request for nothing.
+  {% endcomment %}
   {% if layout.common-css %}
     {% for css in layout.common-css %}
+      {% if css contains "bootstrap-social" %}{% unless page.social-share %}{% continue %}{% endunless %}{% endif %}
       <link rel="stylesheet" href="{{ css | prepend: site.baseurl | replace: '//', '/' }}" />
     {% endfor %}
   {% endif %}
