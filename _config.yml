@@ -32,16 +32,16 @@ organization_name: "Iber Homes Pte. Ltd."
 
 # List of links in the navigation bar
 navbar-links:
-  Research: "research"
-  Development: "development"
-  AI Agents: "ai-agents"
-  Iber Group Team: "iber-group-team"
-  About Us: "aboutus"
+  Research: "research/"
+  Development: "development/"
+  AI Agents: "ai-agents/"
+  Iber Group Team: "iber-group-team/"
+  About Us: "aboutus/"
   Products:
-    - Ethereum smart contracts: "products_eth"
-    - Smart contracts audit: "products_audit"
-    - Other  code: "products_code"
-  Partners: "partner"  
+    - Ethereum smart contracts: "products_eth/"
+    - Smart contracts audit: "products_audit/"
+    - Other  code: "products_code/"
+  Partners: "partner/"  
   #Author's home: "http://deanattali.com"
 
 # Image to show in the navigation bar - image must be a square (width = height)

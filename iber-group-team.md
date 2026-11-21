@@ -17,7 +17,7 @@ people:
     job-title: Traffic Manager
   - name: Gleb Nechaev
     job-title: Python Developer
-last_modified_at: 2026-07-26
+last_modified_at: 2026-11-21
 ---
 
 
@@ -30,4 +30,4 @@ last_modified_at: 2026-07-26
 
 * * *
 
-Read more [about Iber](/aboutus), the [services we provide](/development), and the [projects we have delivered](/products_eth).
+Read more [about Iber](/aboutus/), the [services we provide](/development/), and the [projects we have delivered](/products_eth/).

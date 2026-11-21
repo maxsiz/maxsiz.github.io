@@ -6,7 +6,7 @@ subtitle: Many discuss the digital economy, and we create it.
 meta-description: Read about Iber research domains spanning Ethereum, NFT infrastructure, zk solutions, DEX design, and Bluetooth Low Energy systems.
 service-name: "Blockchain and Ethereum research"
 service-type: "Applied blockchain research"
-last_modified_at: 2026-11-03
+last_modified_at: 2026-11-21
 ---
 
 
@@ -17,7 +17,7 @@ last_modified_at: 2026-11-03
 * DEX
 
 **AI agents for DeFi**
-* agent pipelines for protocol onboarding and LP strategy research ([AI Agents](/ai-agents))
+* agent pipelines for protocol onboarding and LP strategy research ([AI Agents](/ai-agents/))
 
 **Bluetooth Low Energy**
 * mesh nets
@@ -26,4 +26,4 @@ last_modified_at: 2026-11-03
 
 ### Related
 
-Where the research lands in practice: [Ethereum smart contracts](/products_eth), [audits](/products_audit), and posts on [distributed liquidity](/2024-11-27-Distributed_Liquidity/) and [Ethereum scalability](/2019-02-01-Short_forecast/).
+Where the research lands in practice: [Ethereum smart contracts](/products_eth/), [audits](/products_audit/), and posts on [distributed liquidity](/2024-11-27-Distributed_Liquidity/) and [Ethereum scalability](/2019-02-01-Short_forecast/).

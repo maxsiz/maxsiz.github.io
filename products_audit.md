@@ -14,7 +14,7 @@ faq:
     a: Yes. Most of the audits listed here were carried out on code written outside Iber.
   - q: How long has Iber been auditing smart contracts?
     a: Since 2017. The earliest published report on this page is the UniLifeToken audit from August 2017.
-last_modified_at: 2026-07-30
+last_modified_at: 2026-11-21
 ---
 
 ### Envelop V1 - smart contracts audit 
@@ -43,4 +43,4 @@ _August, 2017_
 
 ### Related
 
-See also: [Ethereum smart contract projects](/products_eth), [development services](/development), and our post on [crypto industry risks for 2026](/2025-12-09-Risks_Crypto_2026/).
+See also: [Ethereum smart contract projects](/products_eth/), [development services](/development/), and our post on [crypto industry risks for 2026](/2025-12-09-Risks_Crypto_2026/).

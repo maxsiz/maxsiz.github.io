@@ -5,7 +5,7 @@ meta-title: "Ethereum Smart Contract Projects | Iber"
 meta-description: Browse Ethereum smart contract projects delivered by Iber, including Envelop, Synvote, Arround, CCIN, and other protocol work.
 service-name: "Ethereum smart contract engineering"
 service-type: "Smart contract development"
-last_modified_at: 2026-07-30
+last_modified_at: 2026-11-21
 ---
 
 ### TokenLaunchHook
@@ -96,4 +96,4 @@ _Project state: Modular ICO  in progress._
 
 ### Related
 
-See also: [smart contract audits](/products_audit), [other code projects](/products_code), and our posts on [distributed liquidity](/2024-11-27-Distributed_Liquidity/) and [secured NFTs](/2021-02-03-Secured-NFT/).
+See also: [smart contract audits](/products_audit/), [other code projects](/products_code/), and our posts on [distributed liquidity](/2024-11-27-Distributed_Liquidity/) and [secured NFTs](/2021-02-03-Secured-NFT/).

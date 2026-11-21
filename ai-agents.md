@@ -6,7 +6,7 @@ subtitle: Agents that research, verify and operate — with a human at every gat
 meta-description: Iber builds AI agent pipelines for Web3 — DeFi protocol onboarding, Uniswap v4 LP strategy research with backtests, and agent-assisted operations — bounded by policy and human approval.
 service-name: "AI agent pipelines for Web3"
 service-type: "AI agent development and integration"
-last_modified_at: 2026-11-03
+last_modified_at: 2026-11-21
 faq:
   - q: What do your AI agents actually do?
     a: They take on the research and verification work around DeFi products — finding protocols and pools that fit formal criteria, writing a checkable specification or strategy, testing it against history, and explaining the result to a human who makes the decision.
@@ -102,5 +102,5 @@ The same approach runs our production support:
 
 ### Related
 
-Our broader work: [development](/development), [research](/research),
-[Ethereum smart contracts](/products_eth) and [smart contract audits](/products_audit).
+Our broader work: [development](/development/), [research](/research/),
+[Ethereum smart contracts](/products_eth/) and [smart contract audits](/products_audit/).

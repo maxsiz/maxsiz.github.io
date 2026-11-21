@@ -5,7 +5,7 @@ meta-title: "Web3 Apps & Custom Blockchain Code | Iber"
 meta-description: See Web3 applications, APIs, bots, and custom software projects delivered by Iber for blockchain and adjacent products.
 service-name: "Web3 application and custom software development"
 service-type: "Software development"
-last_modified_at: 2026-07-30
+last_modified_at: 2026-11-21
 ---
 
 
@@ -54,4 +54,4 @@ _Project state: Start in 2016, production. - project on pause_
 
 ### Related
 
-See also: [Ethereum smart contracts](/products_eth), [what we build](/development), and [research domains](/research).
+See also: [Ethereum smart contracts](/products_eth/), [what we build](/development/), and [research domains](/research/).
