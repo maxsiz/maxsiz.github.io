@@ -30,7 +30,13 @@
 - Mobile, 4 прогона: score 78 / 93 / 81 / 78, LCP 5,0 / 3,2 / 4,9 / 5,0 с (база 78 / 5,2 с). Медиана ~80 / 5,0 с.
 - Desktop: 98–100, LCP 0,7–1,1 с (было 97 / 1,2 с).
 - Загрузка картинки исправлена: load delay 518 → 153 мс. Теперь LCP на mobile почти целиком render delay (~2 с) — блокирующие `bootstrap.min.css` и `main.css`.
-- Следующий шаг (не сделан): critical CSS шапки inline в `<head>`, основной CSS без блокировки.
+## Critical CSS (2026-11-21)
+
+- `tools/critical_css.py` обходит все страницы `_site` в headless Chromium и оставляет правила, чьи селекторы что-то находят (258 правил, 27 КБ, 5 КБ gzip) → `_includes/critical.css`.
+- `head.html`: CSS сайта — `media="print"` + `onload`, после загрузки всех файлов inline-блок удаляется (каскад как у файлов). `<noscript>` — обычные ссылки.
+- Проверено: 8 страниц × 360/1280 px, рендер только на inline-CSS против полного — совпадает (кроме субпиксельного сглаживания одной кнопки); бургер, Products, сжатие навбара при скролле работают.
+- Перед этим stack-advisor сравнил переезд на Beautiful Jekyll 6 / Jekyll 4 / Hugo-Astro: вывод — остаться; BJ 6 грузит полный Bootstrap 4 с CDN и быстрее не станет.
+- Дальше по желанию: убрать jQuery + bootstrap.min.js (~127 КБ JS), Font Awesome 4.6 → inline SVG.
 
 ## Проверено
 
