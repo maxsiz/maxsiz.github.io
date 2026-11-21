@@ -23,8 +23,14 @@
 | Preload картинки шапки | `_includes/head.html`, `fetchpriority="high"`, до стилей |
 | PNG → WebP | `bigsolidity_black2.webp` lossless, 15,5 КБ вместо 44,8 КБ; PNG оставлен |
 | `bootstrap-social.css` | только на постах с `social-share` |
+| `pygment_highlights.css` | был `@import` в начале `main.css` — второй последовательный блокирующий запрос на каждой странице; теперь `<link>` только на постах (подсветки кода на сайте сейчас нет нигде) |
 
-`pygment_highlights.css` в отчёте агента был ошибочно: на сайте не подключается.
+## Замер PSI после первого деплоя (2026-11-21 ~05:15 UTC)
+
+- Mobile, 4 прогона: score 78 / 93 / 81 / 78, LCP 5,0 / 3,2 / 4,9 / 5,0 с (база 78 / 5,2 с). Медиана ~80 / 5,0 с.
+- Desktop: 98–100, LCP 0,7–1,1 с (было 97 / 1,2 с).
+- Загрузка картинки исправлена: load delay 518 → 153 мс. Теперь LCP на mobile почти целиком render delay (~2 с) — блокирующие `bootstrap.min.css` и `main.css`.
+- Следующий шаг (не сделан): critical CSS шапки inline в `<head>`, основной CSS без блокировки.
 
 ## Проверено
 
