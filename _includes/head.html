@@ -136,6 +136,15 @@
   {% endif %}
 
   {% comment %}
+    Code highlighting is only ever in posts. It used to be an @import at the
+    top of main.css, which made it a second, serial render-blocking hop on
+    every page.
+  {% endcomment %}
+  {% if page.collection == "posts" %}
+  <link rel="stylesheet" href="{{ '/css/pygment_highlights.css' | relative_url }}" />
+  {% endif %}
+
+  {% comment %}
     Same non-blocking pattern for web fonts: text paints at once in the
     fallback font and swaps to Lora / Open Sans when they arrive.
   {% endcomment %}
