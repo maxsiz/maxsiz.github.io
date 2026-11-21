@@ -199,6 +199,7 @@ exclude:
   - CHANGELOG.md
   - CNAME
   - codex
+  - tools
   - Dockerfile
   - Gemfile
   - Gemfile.lock

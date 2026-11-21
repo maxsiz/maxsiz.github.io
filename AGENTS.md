@@ -54,6 +54,11 @@
 - Prefer minimal edits in the most local place that solves the task.
 - Treat `README.md` as theme reference only; validate any project-specific claim against actual files.
 - Avoid changing vendored assets in `css/` and `js/` unless the task explicitly requires it.
+- The site CSS loads asynchronously; first paint uses `_includes/critical.css`, generated
+  by `tools/critical_css.py` (Python Playwright, dev-only). After changing anything in
+  `css/`, `_layouts/`, `_includes/` or adding new classes in content, run
+  `bundle exec jekyll build && python3 tools/critical_css.py` and commit the result.
+  Missing rules cause a brief unstyled flash until the full CSS arrives.
 - Do not rename pages, permalinks, or navigation entries without confirming the intended public URL impact.
 - Be careful with analytics/comment/includes changes because they affect the whole site.
 - Preserve existing YAML front matter and Liquid syntax formatting unless there is a reason to normalize it.
